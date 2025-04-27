@@ -1,0 +1,135 @@
+from api import get_series_details, get_season_details, get_credits, get_images
+from nfo import generate_series_nfo, generate_episode_nfo, generate_movie_nfo, save_nfo
+from download import download_movie_image, download_tvshow_image
+
+
+def run_tv(tv_id, title=None, koleksi=None, season_number=1):
+    # Ambil data series dan season
+    series_data = get_series_details(tv_id, "tv")
+    if not series_data:
+        return
+    
+    season_data = get_season_details(tv_id, season_number)
+    if not season_data:
+        return
+
+    # Ambil data terkait lainnya (credits, images)
+    actors = get_credits(tv_id, "tv")
+    posters, fanarts = get_images(tv_id, "tv")
+
+    # Cek apakah ada collection
+    collection = None
+    if series_data.get('belongs_to_collection'):
+        collection_data = series_data['belongs_to_collection']
+        collection = {
+            "id": collection_data.get('id', ''),
+            "name": collection_data.get('name', ''),
+            "overview": series_data.get('overview', ''),
+            "poster_path": collection_data.get('poster_path', ''),
+            "backdrop_path": collection_data.get('backdrop_path', '')
+        }
+
+    if koleksi:
+        collection = {
+            "id": koleksi,
+            "name": koleksi,
+            "overview": series_data.get('overview', ''),
+            "poster_path": '',
+            "backdrop_path": ''
+        }
+
+    # Buat NFO untuk series
+    series_title = series_data.get('name', 'Unknown Title')
+    rating = series_data.get('vote_average', '0')
+    description = series_data.get('overview', 'No description.')
+    premiered = series_data.get('first_air_date', '')
+    tmdbid = series_data.get('id', '')
+    imdbid = series_data.get('external_ids', {}).get('imdb_id', '')
+    production_companies = series_data.get('production_companies', [])
+    studio = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    genres = [genre['name'] for genre in series_data.get('genres', [])]
+
+    series_nfo_content = generate_series_nfo(
+        series_title, rating, description, premiered,
+        tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection
+    )
+
+    if not title:
+        title = series_title
+
+    save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv", season_number)
+
+    # Download images
+    if posters:
+        download_tvshow_image(posters[-1]['original'], title, "poster")
+    if fanarts:
+        download_tvshow_image(fanarts[-1]['original'], title, "fanart")
+
+    # Buat NFO untuk setiap episode
+    episodes = season_data.get('episodes', [])
+    for episode_data in episodes:
+        episode_number = episode_data.get('episode_number')
+        # title = episode_data.get('name', 'Unknown Title')
+        aired = episode_data.get('air_date', '')
+        plot = episode_data.get('overview', 'No description.')
+        episode_nfo_content = generate_episode_nfo(title, plot, aired, episode_number, season_number)
+        filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
+        save_nfo(title, episode_nfo_content, filename, "tv", season_number)
+
+def run_movie(movie_id, title=None, koleksi=None):
+    # Ambil data movie
+    movie_data = get_series_details(movie_id, "movie")
+    if not movie_data:
+        return
+
+    # Ambil data terkait lainnya (credits, images)
+    actors = get_credits(movie_id, "movie")
+    posters, fanarts = get_images(movie_id, "movie")
+
+    # Cek apakah ada collection
+    collection = None
+    if movie_data.get('belongs_to_collection'):
+        collection_data = movie_data['belongs_to_collection']
+        collection = {
+            "id": collection_data.get('id', ''),
+            "name": collection_data.get('name', ''),
+            "overview": movie_data.get('overview', ''),
+            "poster_path": collection_data.get('poster_path', ''),
+            "backdrop_path": collection_data.get('backdrop_path', '')
+        }
+            
+    if koleksi:
+        collection = {
+            "id": koleksi,
+            "name": koleksi,
+            "overview": movie_data.get('overview', ''),
+            "poster_path": '',
+            "backdrop_path": ''
+        }
+
+    movies_title = movie_data.get('original_title', 'Unknown Title')
+    rating = movie_data.get('vote_average', '0')
+    description = movie_data.get('overview', 'No description.')
+    premiered = movie_data.get('release_date', '')
+    tmdbid = movie_data.get('id', '')
+    imdbid = movie_data.get('imdb_id', '')
+    production_companies = movie_data.get('production_companies', [])
+    studio = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    genres = [genre['name'] for genre in movie_data.get('genres', [])]
+    year = premiered.split('-')[0] if premiered else 'Unknown'
+    
+    movie_nfo_content = generate_movie_nfo(
+        title, rating, description, premiered,
+        tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection
+    )
+
+    if not title:
+        title = movies_title
+
+    save_nfo(f"{title} ({year})", movie_nfo_content, f"{title} ({year}).nfo", "movie", year=year)
+
+    # Download images
+    if posters:
+        download_movie_image(posters[-1]['original'], f"{title} ({year})", "poster")
+    if fanarts:
+        download_movie_image(fanarts[-1]['original'], f"{title} ({year})", "fanart")
