@@ -47,18 +47,20 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studio, g
         <thumb>https://image.tmdb.org/t/p/w300{photo}</thumb>
     </actor>
 """
-            
-    # Thumbs (poster)
+        
+    # Art section
+    nfo += "\n  <art>"
+
+    # Posters
     for poster in posters:
-        nfo += f'\n  <thumb preview="{poster["preview"]}">{poster["original"]}</thumb>'
+        nfo += f'\n    <poster>{poster["original"]}</poster>'
 
     # Fanarts
-    nfo += "\n  <fanart>"
     for fanart in fanarts:
-        nfo += f'\n    <thumb preview="{fanart["preview"]}">{fanart["original"]}</thumb>'
-    nfo += "\n  </fanart>\n</tvshow>"
+        nfo += f'\n    <fanart>{fanart["original"]}</fanart>'
 
-    nfo += "</movie>"
+    nfo += "\n  </art>\n</movie>"
+            
     return nfo
 
 def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection=None):
@@ -108,16 +110,19 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
     <role>{actor_role}</role>
     <thumb>https://image.tmdb.org/t/p/w300{photo}</thumb>
   </actor>"""
+        
+    # Art section
+    nfo += "\n  <art>"
 
-    # Thumbs (poster)
+    # Posters
     for poster in posters:
-        nfo += f'\n  <thumb preview="{poster["preview"]}">{poster["original"]}</thumb>'
+        nfo += f'\n    <poster>{poster["original"]}</poster>'
 
     # Fanarts
-    nfo += "\n  <fanart>"
     for fanart in fanarts:
-        nfo += f'\n    <thumb preview="{fanart["preview"]}">{fanart["original"]}</thumb>'
-    nfo += "\n  </fanart>\n</tvshow>"
+        nfo += f'\n    <fanart>{fanart["original"]}</fanart>'
+
+    nfo += "\n  </art>\n</tvshow>"
 
     return nfo
 
