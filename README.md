@@ -40,7 +40,7 @@ Dengan NFO Maker, Anda dapat memastikan bahwa semua jenis konten dewasa, termasu
 ## Cara Penggunaan:
 1. **Jalankan skrip** dengan perintah:
    ```bash
-   python nfo_maker.py
+   python main.py
      ```
 
 2. Skrip akan meminta input dari Anda untuk konten
