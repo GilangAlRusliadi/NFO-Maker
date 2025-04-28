@@ -59,13 +59,13 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
         if nekopoi_title:
             series_title = nekopoi_title
         if nekopoi_studio:
-            studio = nekopoi_studio
+            studios = nekopoi_studio
         if nekopoi_genres:
             genres = nekopoi_genres
 
     series_nfo_content = generate_series_nfo(
         series_title, rating, description, premiered,
-        tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection
+        tmdbid, imdbid, sorted(studios), sorted(genres), actors, posters, fanarts, collection
     )
 
     if not title:
@@ -76,10 +76,10 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
     save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv", season_number)
 
     # Download images
-    # if posters:
-    #     download_tvshow_image(posters[-1]['original'], title, "poster")
-    # if fanarts:
-    #     download_tvshow_image(fanarts[-1]['original'], title, "fanart")
+    if posters:
+        download_tvshow_image(posters[-1]['original'], title, "poster")
+    if fanarts:
+        download_tvshow_image(fanarts[-1]['original'], title, "fanart")
 
     # Buat NFO untuk setiap episode
     episodes = season_data.get('episodes', [])
@@ -137,7 +137,7 @@ def run_movie(movie_id, title="", koleksi=None):
     
     movie_nfo_content = generate_movie_nfo(
         movies_title, rating, description, premiered,
-        tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection
+        tmdbid, imdbid, sorted(studios), sorted(genres), actors, posters, fanarts, collection
     )
 
     if not title:

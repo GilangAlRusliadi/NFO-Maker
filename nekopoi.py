@@ -29,9 +29,9 @@ def info_nekopoi(url):
         if li.find('b', string='Genres'):
             genres.extend([a.text for a in li.find_all('a', rel='tag')])
 
-    producers = [p.strip() for p in producers_string.split(',')]
+    producers = [pro.strip() for pro in producers_string.split(',')]
 
-    return title, producers, genres
+    return title, sorted(producers), sorted(genres)
 
 def searching(cari, halaman=1):
     search = 'https://nekopoi.care/search/' + cari.replace(' ', '+') + '/page/{}/'
