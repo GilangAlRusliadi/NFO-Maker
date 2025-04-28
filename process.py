@@ -50,7 +50,8 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
     tmdbid = series_data.get('id', '')
     imdbid = series_data.get('external_ids', {}).get('imdb_id', '')
     production_companies = series_data.get('production_companies', [])
-    studio = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    studio_string = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    studios = [studio.strip() for studio in studio_string.split(',')]
     genres = [genre['name'] for genre in series_data.get('genres', [])]
 
     if title:
@@ -64,7 +65,7 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
 
     series_nfo_content = generate_series_nfo(
         series_title, rating, description, premiered,
-        tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection
+        tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection
     )
 
     if not title:
@@ -75,10 +76,10 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
     save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv", season_number)
 
     # Download images
-    if posters:
-        download_tvshow_image(posters[-1]['original'], title, "poster")
-    if fanarts:
-        download_tvshow_image(fanarts[-1]['original'], title, "fanart")
+    # if posters:
+    #     download_tvshow_image(posters[-1]['original'], title, "poster")
+    # if fanarts:
+    #     download_tvshow_image(fanarts[-1]['original'], title, "fanart")
 
     # Buat NFO untuk setiap episode
     episodes = season_data.get('episodes', [])
@@ -129,13 +130,14 @@ def run_movie(movie_id, title="", koleksi=None):
     tmdbid = movie_data.get('id', '')
     imdbid = movie_data.get('imdb_id', '')
     production_companies = movie_data.get('production_companies', [])
-    studio = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    studio_string = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    studios = [studio.strip() for studio in studio_string.split(',')]
     genres = [genre['name'] for genre in movie_data.get('genres', [])]
     year = premiered.split('-')[0] if premiered else 'Unknown'
     
     movie_nfo_content = generate_movie_nfo(
         movies_title, rating, description, premiered,
-        tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection
+        tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection
     )
 
     if not title:

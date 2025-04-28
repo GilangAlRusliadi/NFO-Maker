@@ -12,23 +12,26 @@ def info_nekopoi(url):
     
     # Get title
     title = soup.find('title').text
+    title = title.split(" – ")[0].strip()
 
     # Initialize variables
     genres = []
-    producers = ""
+    producers_string = ""
 
     # Get li elements to extract producer and genres
     li_elements = soup.find_all('li')
     for li in li_elements:
         # Get producers
         if li.find('b', string='Produser'):
-            producers = li.text.split(': ')[1]
+            producers_string = li.text.split(': ')[1]
 
         # Get genre
         if li.find('b', string='Genres'):
             genres.extend([a.text for a in li.find_all('a', rel='tag')])
-    
-    return title.split(" – ")[0].strip(), producers, genres
+
+    producers = [p.strip() for p in producers_string.split(',')]
+
+    return title, producers, genres
 
 def searching(cari, halaman=1):
     search = 'https://nekopoi.care/search/' + cari.replace(' ', '+') + '/page/{}/'

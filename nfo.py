@@ -1,7 +1,7 @@
 import os
 
-def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection=None):
-    genre_str = ' / '.join(genres) if genres else ''
+def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection=None):
+    # genre_str = ' / '.join(genres) if genres else ''
 
     nfo = f"""<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <movie>
@@ -12,9 +12,15 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studio, g
     <premiered>{premiered}</premiered>
     <tmdbid>{tmdbid}</tmdbid>
     <imdbid>{imdbid}</imdbid>
-    <studio>{studio}</studio>
-    <genre>{genre_str}</genre>
 """
+
+    # Studio
+    for studio in studios:
+        nfo += f"\n  <studio>{studio}</studio>"
+
+    # Genre
+    for genre in genres:
+        nfo += f"\n  <genre>{genre}</genre>"
 
     # Jika ada Collection
     if collection:
@@ -63,7 +69,7 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studio, g
             
     return nfo
 
-def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection=None):
+def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection=None):
     nfo = f"""<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tvshow>
   <title>{series_title}</title>
@@ -74,8 +80,15 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
   <premiered>{premiered}</premiered>
   <id>{tmdbid}</id>
   <tmdbid>{tmdbid}</tmdbid>
-  <imdbid>{imdbid}</imdbid>
-  <studio>{studio}</studio>"""
+  <imdbid>{imdbid}</imdbid>"""
+
+    # Studio
+    for studio in studios:
+        nfo += f"\n  <studio>{studio}</studio>"
+
+    # Genre
+    for genre in genres:
+        nfo += f"\n  <genre>{genre}</genre>"
 
     # Jika ada Collection
     if collection:
@@ -94,10 +107,6 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
     <backdropLarge>https://image.tmdb.org/t/p/w1280{backdrop_path}</backdropLarge>
     <backdropThumb>https://image.tmdb.org/t/p/w300{backdrop_path}</backdropThumb>
   </set>"""
-
-    # Genre
-    for genre in genres:
-        nfo += f"\n  <genre>{genre}</genre>"
 
     # Actors
     for actor in actors:
