@@ -1,7 +1,9 @@
+import re
 from api import get_series_details, get_season_details, get_credits, get_images
 from nfo import generate_series_nfo, generate_episode_nfo, generate_movie_nfo, save_nfo
 from download import download_movie_image, download_tvshow_image
 
+invalid_chars = r'[\/:*?"<>|]'
 
 def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     # Ambil data series dan season
@@ -57,6 +59,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     if not title:
         title = series_title
 
+    title = re.sub(invalid_chars, ' ', title)
     save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv", season_number)
 
     # Download images
@@ -107,7 +110,7 @@ def run_movie(movie_id, title=None, koleksi=None):
             "backdrop_path": ''
         }
 
-    movies_title = movie_data.get('original_title', 'Unknown Title')
+    movies_title = movie_data.get('title', 'Unknown Title')
     rating = movie_data.get('vote_average', '0')
     description = movie_data.get('overview', 'No description.')
     premiered = movie_data.get('release_date', '')
@@ -126,6 +129,7 @@ def run_movie(movie_id, title=None, koleksi=None):
     if not title:
         title = movies_title
 
+    title = re.sub(invalid_chars, ' ', title)
     save_nfo(f"{title} ({year})", movie_nfo_content, f"{title} ({year}).nfo", "movie", year=year)
 
     # Download images

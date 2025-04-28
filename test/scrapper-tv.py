@@ -1,11 +1,15 @@
 import os
+import sys
+
+# Tambahkan path ke root project
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from difflib import SequenceMatcher
 from api import search_tmdb, get_series_details
 from process import run_tv
 
 def similar(a, b):
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
-import os
 
 def rename_files_in_folder(folder_path):
     for filename in os.listdir(folder_path):
@@ -42,7 +46,7 @@ def find_leaf_folders_without_nfo(root_path):
 
     return result
 
-root = r"G:\Media\Nekopoi"
+root = r"G:\Media\Anime"
 folders = find_leaf_folders_without_nfo(root)
 
 if folders:
