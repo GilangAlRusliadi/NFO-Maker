@@ -1,4 +1,10 @@
 import os
+import re
+
+def pisah_kecil_besar(teks):
+    # Tambahkan spasi di antara huruf kecil diikuti huruf besar
+    hasil = re.sub(r'([a-z])([A-Z])', r'\1 \2', teks)
+    return hasil
 
 def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection=None):
     # genre_str = ' / '.join(genres) if genres else ''
@@ -16,11 +22,11 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
 
     # Studio
     for studio in studios:
-        nfo += f"\n  <studio>{studio}</studio>"
+        nfo += f"\n  <studio>{pisah_kecil_besar(studio)}</studio>"
 
     # Genre
     for genre in genres:
-        nfo += f"\n  <genre>{genre}</genre>"
+        nfo += f"\n  <genre>{pisah_kecil_besar(genre)}</genre>"
 
     # Jika ada Collection
     if collection:
@@ -84,11 +90,11 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
 
     # Studio
     for studio in studios:
-        nfo += f"\n  <studio>{studio}</studio>"
+        nfo += f"\n  <studio>{pisah_kecil_besar(studio)}</studio>"
 
     # Genre
     for genre in genres:
-        nfo += f"\n  <genre>{genre}</genre>"
+        nfo += f"\n  <genre>{pisah_kecil_besar(genre)}</genre>"
 
     # Jika ada Collection
     if collection:
