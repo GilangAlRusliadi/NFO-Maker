@@ -34,30 +34,20 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studio, g
         <backdropThumb>https://image.tmdb.org/t/p/w300{backdrop_path}</backdropThumb>
     </set>
 """
-
+        
     # Tambahkan actors
     if actors:
         for actor in actors:
             actor_name = actor.get("name", "Unknown Actor")
             character = actor.get("character", "Unknown Role")
+            photo = actor.get("profile_path", "")
             nfo += f"""    <actor>
         <name>{actor_name}</name>
         <role>{character}</role>
+        <thumb>https://image.tmdb.org/t/p/w300{photo}</thumb>
     </actor>
 """
-
-    # Tambahkan thumbs (poster, fanart)
-#     if posters:
-#         for poster in posters:
-#             nfo += f"""    <thumb aspect="poster">{poster['original']}</thumb>
-# """
-#     if fanarts:
-#         for fanart in fanarts:
-#             nfo += f"""    <fanart>
-#         <thumb>{fanart}</thumb>
-#     </fanart>
-# """
-
+            
     # Thumbs (poster)
     for poster in posters:
         nfo += f'\n  <thumb preview="{poster["preview"]}">{poster["original"]}</thumb>'
@@ -111,10 +101,12 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
     for actor in actors:
         actor_name = actor.get("name", "Unknown Actor")
         actor_role = actor.get("character", "Unknown Role")
+        photo = actor.get("profile_path", "")
 
         nfo += f"""\n  <actor>
     <name>{actor_name}</name>
     <role>{actor_role}</role>
+    <thumb>https://image.tmdb.org/t/p/w300{photo}</thumb>
   </actor>"""
 
     # Thumbs (poster)

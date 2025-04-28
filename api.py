@@ -5,13 +5,13 @@ from dotenv import load_dotenv
 load_dotenv()  # untuk memuat .env
 
 API_KEY = os.getenv("TMDB_API_KEY")
-Authorization = os.getenv("TMDB_Authorization")
+# Authorization = os.getenv("TMDB_Authorization")
 BASE_URL = 'https://api.themoviedb.org/3'
 params = {
     "api_key": API_KEY,
-    "language": "en-US",
-    "Authorization": Authorization,
-    "append_to_response": "external_ids"
+    "language": "en-US"
+    # "Authorization": Authorization,
+    # "append_to_response": "external_ids"
 }
 
 def get_series_details(id, tipe):

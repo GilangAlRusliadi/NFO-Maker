@@ -2,10 +2,12 @@ import re
 from api import get_series_details, get_season_details, get_credits, get_images
 from nfo import generate_series_nfo, generate_episode_nfo, generate_movie_nfo, save_nfo
 from download import download_movie_image, download_tvshow_image
+from nekopoi import searching
 
 invalid_chars = r'[\/:*?"<>|]'
 
-def run_tv(tv_id, title=None, koleksi=None, season_number=1):
+def run_tv(tv_id, title="", koleksi=None, season_number=1):
+
     # Ambil data series dan season
     series_data = get_series_details(tv_id, "tv")
     if not series_data:
@@ -51,6 +53,15 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     studio = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
     genres = [genre['name'] for genre in series_data.get('genres', [])]
 
+    if title:
+        nekopoi_title, nekopoi_studio, nekopoi_genres = searching(title)
+        if nekopoi_title:
+            series_title = nekopoi_title
+        if nekopoi_studio:
+            studio = nekopoi_studio
+        if nekopoi_genres:
+            genres = nekopoi_genres
+
     series_nfo_content = generate_series_nfo(
         series_title, rating, description, premiered,
         tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection
@@ -60,6 +71,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
         title = series_title
 
     title = re.sub(invalid_chars, ' ', title)
+    title = title.strip()
     save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv", season_number)
 
     # Download images
@@ -79,7 +91,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
         filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
         save_nfo(title, episode_nfo_content, filename, "tv", season_number)
 
-def run_movie(movie_id, title=None, koleksi=None):
+def run_movie(movie_id, title="", koleksi=None):
     # Ambil data movie
     movie_data = get_series_details(movie_id, "movie")
     if not movie_data:
@@ -122,7 +134,7 @@ def run_movie(movie_id, title=None, koleksi=None):
     year = premiered.split('-')[0] if premiered else 'Unknown'
     
     movie_nfo_content = generate_movie_nfo(
-        title, rating, description, premiered,
+        movies_title, rating, description, premiered,
         tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection
     )
 
@@ -130,10 +142,11 @@ def run_movie(movie_id, title=None, koleksi=None):
         title = movies_title
 
     title = re.sub(invalid_chars, ' ', title)
-    save_nfo(f"{title} ({year})", movie_nfo_content, f"{title} ({year}).nfo", "movie", year=year)
+    title = title.strip()
+    save_nfo(title, movie_nfo_content, f"{title} ({year}).nfo", "movie", year=year)
 
     # Download images
     if posters:
-        download_movie_image(posters[-1]['original'], f"{title} ({year})", "poster")
+        download_movie_image(posters[-1]['original'], title, year, "poster")
     if fanarts:
-        download_movie_image(fanarts[-1]['original'], f"{title} ({year})", "fanart")
+        download_movie_image(fanarts[-1]['original'], title, year, "fanart")

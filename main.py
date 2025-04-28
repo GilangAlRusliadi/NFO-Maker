@@ -1,3 +1,4 @@
+import subprocess
 from process import run_tv, run_movie
 
 def main(tipe=None, id=None, title=None, koleksi=None, season=1):
