@@ -6,7 +6,8 @@ def download_movie_image(url, title, year, tipe="poster"):
     dir = os.path.join("MyMovie", folder_name)
     os.makedirs(dir, exist_ok=True)
 
-    name = f"{folder_name}-{tipe}.jpg"
+    # name = f"{folder_name}-{tipe}.jpg"
+    name = f"{tipe}.jpg"
 
     filepath = os.path.join(dir, name)
 

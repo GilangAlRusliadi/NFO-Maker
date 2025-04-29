@@ -154,6 +154,7 @@ def generate_episode_nfo(episode_title, episode_plot, aired_date, episode_number
 
 def save_nfo(title, content, filename, tipe="movie", season=1, year=None):
     if tipe == "movie":
+        filename = f"movie.nfo"
         if year is None:
             raise ValueError("Parameter 'year' harus diisi untuk tipe 'movie'.")
         folder_name = f"{title} ({year})"
@@ -175,5 +176,3 @@ def save_nfo(title, content, filename, tipe="movie", season=1, year=None):
         f.write(content)
 
     print(f"Berhasil membuat {filename}")
-
-

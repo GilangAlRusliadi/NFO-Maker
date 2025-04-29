@@ -127,8 +127,13 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Don't Upload
 testing/
+*.jpg
+*.png
+*.jpeg
+
+# Environments
 .env
 .venv
 env/

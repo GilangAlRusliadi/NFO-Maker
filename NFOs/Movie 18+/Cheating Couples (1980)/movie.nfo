@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<movie>
+    <title>Cheating Couples</title>
+    <originaltitle>Cheating Couples</originaltitle>
+    <rating>7.7</rating>
+    <plot>Vincent thinks his wife, Geneviève is an awful bore, but she turns out to be an insatiate nymphomaniac. One evening they have a party at home, a few couples are invited. A woman seduces all men at the party. Geneviève obviously feels uncomfortable with the situation. What's more, Vincent requests her to have sex in front of the audience but she runs away.  In the end, however, she throws another party to fulfill his request.</plot>
+    <premiered>1980-02-10</premiered>
+    <tmdbid>545952</tmdbid>
+    <imdbid>tt0230163</imdbid>
+
+  <studio>Alpha France</studio>
+  <studio>F.F.C.M.</studio>
+  <studio>Shangrila Productions</studio>
+  <genre>Romance</genre>    <actor>
+        <name>Richard Lemieuvre</name>
+        <role>Vincent</role>
+        <thumb>https://image.tmdb.org/t/p/w300/emrIE2Ztdbleyn8QCog4DLNV8S9.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Élisabeth Buré</name>
+        <role>Geneviève</role>
+        <thumb>https://image.tmdb.org/t/p/w300/5mT7Zns97mnDGEygMXjrK2qvKfc.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Gabriel Pontello</name>
+        <role>Gérald</role>
+        <thumb>https://image.tmdb.org/t/p/w300/6yeCMdwEFkOebXg10RMYBSUwXD6.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Dominique Aveline</name>
+        <role>Mr. Paul</role>
+        <thumb>https://image.tmdb.org/t/p/w300/yepzXrOm3tNMzJ0ACNBblTSMHTR.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Danièle Azzalini</name>
+        <role>Josee</role>
+        <thumb>https://image.tmdb.org/t/p/w300None</thumb>
+    </actor>
+    <actor>
+        <name>Thierry de Brem</name>
+        <role>Josee's Husband</role>
+        <thumb>https://image.tmdb.org/t/p/w300/gU9m4RwE2RZ009jh4goSsv4VOyT.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Serena</name>
+        <role>Wife of Couple 3</role>
+        <thumb>https://image.tmdb.org/t/p/w300/jDsJqs8hO7aKZLWc0C4iOuIfZIL.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Gilbert Servien</name>
+        <role>Husband of Couple 3</role>
+        <thumb>https://image.tmdb.org/t/p/w300/eKY0A12zBL7sUvaFmmgoWypx8Ta.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Cyril Val</name>
+        <role>Man in Threesome</role>
+        <thumb>https://image.tmdb.org/t/p/w300/scVXOSiYGi9kNcThxxgsDu28hV5.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Margareth</name>
+        <role>Girl in Threesome</role>
+        <thumb>https://image.tmdb.org/t/p/w300None</thumb>
+    </actor>
+    <actor>
+        <name>Piotr Stanislas</name>
+        <role>Marc</role>
+        <thumb>https://image.tmdb.org/t/p/w300/21EKqPIwJ9pyEG2SvA28tAxGbeh.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Natacha Lori</name>
+        <role></role>
+        <thumb>https://image.tmdb.org/t/p/w300None</thumb>
+    </actor>
+    <actor>
+        <name>Jacques Marbeuf</name>
+        <role></role>
+        <thumb>https://image.tmdb.org/t/p/w300/FSlZjJw1KkSYuVEEDQy2sp6xs9.jpg</thumb>
+    </actor>
+    <actor>
+        <name>Olivier Mathot</name>
+        <role></role>
+        <thumb>https://image.tmdb.org/t/p/w300/75kLBKdSRJD0Q8NcIWttmEpZPyD.jpg</thumb>
+    </actor>
+
+  <art>
+    <poster>https://image.tmdb.org/t/p/original/1bep2gsEMVgFRWAzFbQXSDpEbyp.jpg</poster>
+    <poster>https://image.tmdb.org/t/p/original/bBSjsDNQgdP5mbLBKiAJ7Bi8kp.jpg</poster>
+    <poster>https://image.tmdb.org/t/p/original/poGv9dDRmuBoO3qa1tMzhhKotTD.jpg</poster>
+    <fanart>https://image.tmdb.org/t/p/original/pxlioTma2gkyMZi2cUQail1gKGO.jpg</fanart>
+  </art>
+</movie>

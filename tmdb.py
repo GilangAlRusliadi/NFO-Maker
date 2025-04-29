@@ -1,6 +1,9 @@
 import os
 import re
 import requests
+    
+#====================================================================================================
+
 from dotenv import load_dotenv
 
 load_dotenv()  # untuk memuat .env
@@ -12,8 +15,6 @@ params = {
     "api_key": API_KEY,
     "language": "en-US"
 }
-    
-#====================================================================================================
 
 def get_series_details(id, tipe):
     if tipe == "movie":
@@ -129,17 +130,72 @@ def search_collection(search_query):
     
 #====================================================================================================
 
+from bs4 import BeautifulSoup
+import cloudscraper
+
+scraper = cloudscraper.create_scraper()
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
+
+def info_nekopoi(url):
+    response = scraper.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    
+    # Get title
+    title = soup.find('title').text
+    title = title.split(" – ")[0].strip()
+
+    # Initialize variables
+    genres = []
+    producers_string = ""
+
+    # Get li elements to extract producer and genres
+    li_elements = soup.find_all('li')
+    for li in li_elements:
+        # Get producers
+        if li.find('b', string='Produser'):
+            producers_string = li.text.split(': ')[1]
+
+        # Get genre
+        if li.find('b', string='Genres'):
+            genres.extend([a.text for a in li.find_all('a', rel='tag')])
+
+    producers = [pro.strip() for pro in producers_string.split(',')]
+
+    return title, sorted(producers), sorted(genres)
+
+def searching(cari, halaman=1):
+    search = 'https://nekopoi.care/search/' + cari.replace(' ', '+') + '/page/{}/'
+
+    series = []
+
+    # Iterate over the pages
+    for page in range(1, halaman+1):
+        url = search.format(page)
+        response = scraper.get(url, headers=headers)
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        links = soup.find_all('a')
+        for link in links:
+            href = link.get('href')
+            if href and 'https://nekopoi.care/hentai/' in href:
+                series.append(href)
+
+    for url in series:
+        title, studios, genres = info_nekopoi(url)
+        break
+   
+    return title, studios, genres
+    
+#====================================================================================================
+
 def download_movie_image(url, title, year, tipe="poster"):
     folder_name = f"{title} ({year})"
-    dir = os.path.join("MyAnime", folder_name)
+    dir = os.path.join("MyMovie", folder_name)
     os.makedirs(dir, exist_ok=True)
 
-    if tipe == "poster":
-        name = f"{folder_name}.jpg"
-    elif tipe == "fanart":
-        name = f"{folder_name}-fanart.jpg"
-    else:
-        name = f"{folder_name}-{tipe}.jpg"
+    name = f"{tipe}.jpg"
 
     filepath = os.path.join(dir, name)
 
@@ -172,11 +228,16 @@ def download_tvshow_image(url, title, tipe, season=1):
         print(f"Gambar berhasil disimpan di: {filepath}")
     else:
         print(f"Gagal mendownload gambar. Status code: {response.status_code}")
-    
+
 #====================================================================================================
 
-def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection=None):
-    genre_str = ' / '.join(genres) if genres else ''
+def pisah_kecil_besar(teks):
+    # Tambahkan spasi di antara huruf kecil diikuti huruf besar
+    hasil = re.sub(r'([a-z])([A-Z])', r'\1 \2', teks)
+    return hasil
+
+def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection=None):
+    # genre_str = ' / '.join(genres) if genres else ''
 
     nfo = f"""<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <movie>
@@ -187,9 +248,15 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studio, g
     <premiered>{premiered}</premiered>
     <tmdbid>{tmdbid}</tmdbid>
     <imdbid>{imdbid}</imdbid>
-    <studio>{studio}</studio>
-    <genre>{genre_str}</genre>
 """
+
+    # Studio
+    for studio in studios:
+        nfo += f"\n  <studio>{pisah_kecil_besar(studio)}</studio>"
+
+    # Genre
+    for genre in genres:
+        nfo += f"\n  <genre>{pisah_kecil_besar(genre)}</genre>"
 
     # Jika ada Collection
     if collection:
@@ -209,32 +276,36 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studio, g
         <backdropThumb>https://image.tmdb.org/t/p/w300{backdrop_path}</backdropThumb>
     </set>
 """
-
+        
     # Tambahkan actors
     if actors:
         for actor in actors:
             actor_name = actor.get("name", "Unknown Actor")
             character = actor.get("character", "Unknown Role")
+            photo = actor.get("profile_path", "")
             nfo += f"""    <actor>
         <name>{actor_name}</name>
         <role>{character}</role>
+        <thumb>https://image.tmdb.org/t/p/w300{photo}</thumb>
     </actor>
 """
+        
+    # Art section
+    nfo += "\n  <art>"
 
-    # Thumbs (poster)
+    # Posters
     for poster in posters:
-        nfo += f'\n  <thumb preview="{poster["preview"]}">{poster["original"]}</thumb>'
+        nfo += f'\n    <poster>{poster["original"]}</poster>'
 
     # Fanarts
-    nfo += "\n  <fanart>"
     for fanart in fanarts:
-        nfo += f'\n    <thumb preview="{fanart["preview"]}">{fanart["original"]}</thumb>'
-    nfo += "\n  </fanart>\n</tvshow>"
+        nfo += f'\n    <fanart>{fanart["original"]}</fanart>'
 
-    nfo += "</movie>"
+    nfo += "\n  </art>\n</movie>"
+            
     return nfo
 
-def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection=None):
+def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection=None):
     nfo = f"""<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tvshow>
   <title>{series_title}</title>
@@ -245,8 +316,15 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
   <premiered>{premiered}</premiered>
   <id>{tmdbid}</id>
   <tmdbid>{tmdbid}</tmdbid>
-  <imdbid>{imdbid}</imdbid>
-  <studio>{studio}</studio>"""
+  <imdbid>{imdbid}</imdbid>"""
+
+    # Studio
+    for studio in studios:
+        nfo += f"\n  <studio>{pisah_kecil_besar(studio)}</studio>"
+
+    # Genre
+    for genre in genres:
+        nfo += f"\n  <genre>{pisah_kecil_besar(genre)}</genre>"
 
     # Jika ada Collection
     if collection:
@@ -266,29 +344,30 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
     <backdropThumb>https://image.tmdb.org/t/p/w300{backdrop_path}</backdropThumb>
   </set>"""
 
-    # Genre
-    for genre in genres:
-        nfo += f"\n  <genre>{genre}</genre>"
-
     # Actors
     for actor in actors:
         actor_name = actor.get("name", "Unknown Actor")
         actor_role = actor.get("character", "Unknown Role")
+        photo = actor.get("profile_path", "")
 
         nfo += f"""\n  <actor>
     <name>{actor_name}</name>
     <role>{actor_role}</role>
+    <thumb>https://image.tmdb.org/t/p/w300{photo}</thumb>
   </actor>"""
+        
+    # Art section
+    nfo += "\n  <art>"
 
-    # Thumbs (poster)
+    # Posters
     for poster in posters:
-        nfo += f'\n  <thumb preview="{poster["preview"]}">{poster["original"]}</thumb>'
+        nfo += f'\n    <poster>{poster["original"]}</poster>'
 
     # Fanarts
-    nfo += "\n  <fanart>"
     for fanart in fanarts:
-        nfo += f'\n    <thumb preview="{fanart["preview"]}">{fanart["original"]}</thumb>'
-    nfo += "\n  </fanart>\n</tvshow>"
+        nfo += f'\n    <fanart>{fanart["original"]}</fanart>'
+
+    nfo += "\n  </art>\n</tvshow>"
 
     return nfo
 
@@ -305,6 +384,7 @@ def generate_episode_nfo(episode_title, episode_plot, aired_date, episode_number
 
 def save_nfo(title, content, filename, tipe="movie", season=1, year=None):
     if tipe == "movie":
+        filename = f"movie.nfo"
         if year is None:
             raise ValueError("Parameter 'year' harus diisi untuk tipe 'movie'.")
         folder_name = f"{title} ({year})"
@@ -326,10 +406,13 @@ def save_nfo(title, content, filename, tipe="movie", season=1, year=None):
         f.write(content)
 
     print(f"Berhasil membuat {filename}")
-      
+
 #====================================================================================================
 
-def run_tv(tv_id, title=None, koleksi=None, season_number=1):
+invalid_chars = r'[\/:*?"<>|]'
+
+def run_tv(tv_id, title="", koleksi=None, season_number=1):
+
     # Ambil data series dan season
     series_data = get_series_details(tv_id, "tv")
     if not series_data:
@@ -372,18 +455,29 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     tmdbid = series_data.get('id', '')
     imdbid = series_data.get('external_ids', {}).get('imdb_id', '')
     production_companies = series_data.get('production_companies', [])
-    studio = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    studio_string = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    studios = [studio.strip() for studio in studio_string.split(',')]
     genres = [genre['name'] for genre in series_data.get('genres', [])]
+
+    if title:
+        nekopoi_title, nekopoi_studio, nekopoi_genres = searching(title)
+        if nekopoi_title:
+            series_title = nekopoi_title
+        if nekopoi_studio:
+            studios = nekopoi_studio
+        if nekopoi_genres:
+            genres = nekopoi_genres
 
     series_nfo_content = generate_series_nfo(
         series_title, rating, description, premiered,
-        tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection
+        tmdbid, imdbid, sorted(studios), sorted(genres), actors, posters, fanarts, collection
     )
 
     if not title:
         title = series_title
 
     title = re.sub(invalid_chars, ' ', title)
+    title = title.strip()
     save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv", season_number)
 
     # Download images
@@ -403,7 +497,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
         filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
         save_nfo(title, episode_nfo_content, filename, "tv", season_number)
 
-def run_movie(movie_id, title=None, koleksi=None):
+def run_movie(movie_id, title="", koleksi=None):
     # Ambil data movie
     movie_data = get_series_details(movie_id, "movie")
     if not movie_data:
@@ -441,27 +535,29 @@ def run_movie(movie_id, title=None, koleksi=None):
     tmdbid = movie_data.get('id', '')
     imdbid = movie_data.get('imdb_id', '')
     production_companies = movie_data.get('production_companies', [])
-    studio = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    studio_string = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
+    studios = [studio.strip() for studio in studio_string.split(',')]
     genres = [genre['name'] for genre in movie_data.get('genres', [])]
     year = premiered.split('-')[0] if premiered else 'Unknown'
     
     movie_nfo_content = generate_movie_nfo(
-        title, rating, description, premiered,
-        tmdbid, imdbid, studio, genres, actors, posters, fanarts, collection
+        movies_title, rating, description, premiered,
+        tmdbid, imdbid, sorted(studios), sorted(genres), actors, posters, fanarts, collection
     )
 
     if not title:
         title = movies_title
 
     title = re.sub(invalid_chars, ' ', title)
-    save_nfo(f"{title} ({year})", movie_nfo_content, f"{title} ({year}).nfo", "movie", year=year)
+    title = title.strip()
+    save_nfo(title, movie_nfo_content, f"{title} ({year}).nfo", "movie", year=year)
 
     # Download images
     if posters:
-        download_movie_image(posters[-1]['original'], f"{title} ({year})", "poster")
+        download_movie_image(posters[-1]['original'], title, year, "poster")
     if fanarts:
-        download_movie_image(fanarts[-1]['original'], f"{title} ({year})", "fanart")
-    
+        download_movie_image(fanarts[-1]['original'], title, year, "fanart")
+
 #====================================================================================================
 
 def main(tipe=None, id=None, title=None, koleksi=None, season=1):
