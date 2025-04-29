@@ -15,6 +15,7 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
     <originaltitle>{title}</originaltitle>
     <rating>{rating}</rating>
     <plot>{plot}</plot>
+    <mpaa>NC-17</mpaa>
     <premiered>{premiered}</premiered>
     <tmdbid>{tmdbid}</tmdbid>
     <imdbid>{imdbid}</imdbid>
@@ -82,7 +83,7 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
   <showtitle>{series_title}</showtitle>
   <rating>{rating}</rating>
   <plot>{description}</plot>
-  <mpaa>R</mpaa>
+  <mpaa>TV-MA</mpaa>
   <premiered>{premiered}</premiered>
   <id>{tmdbid}</id>
   <tmdbid>{tmdbid}</tmdbid>

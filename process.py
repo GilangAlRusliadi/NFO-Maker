@@ -7,6 +7,9 @@ from nekopoi import searching
 invalid_chars = r'[\/:*?"<>|]'
 
 def run_tv(tv_id, title="", koleksi=None, season_number=1):
+    if tv_id.startswith("http"):
+        if len(tv_id.split("/")) > 5:
+            tv_id = tv_id.split("/")[4].split("-")[0].split("?")[0]
 
     # Ambil data series dan season
     series_data = get_series_details(tv_id, "tv")
@@ -93,6 +96,10 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
         save_nfo(title, episode_nfo_content, filename, "tv", season_number)
 
 def run_movie(movie_id, title="", koleksi=None):
+    if movie_id.startswith("http"):
+        if len(movie_id.split("/")) > 5:
+            tv_id = movie_id.split("/")[4].split("-")[0].split("?")[0]
+
     # Ambil data movie
     movie_data = get_series_details(movie_id, "movie")
     if not movie_data:
