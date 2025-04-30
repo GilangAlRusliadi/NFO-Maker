@@ -19,59 +19,57 @@ codes = ["api.py", "download.py", "nekopoi.py", "nfo.py", "process.py"]
 
 def clear_nekopoi(lines):
     hasil = []
-    hapus = False
-    skip_mode = None  # None, "main_def", or "main_call"
 
-    for i, line in enumerate(lines):
+    for line in lines:
         stripped = line.strip()
 
         # Mulai hapus saat ketemu def main()
-        if stripped.startswith("def main()"):
-            hapus = True
-            skip_mode = "main_def"
-            continue
+        if stripped.startswith("def main"):
+            break
 
-        # Hapus pemanggilan main()
-        if stripped.startswith('if __name__ == "__main__":') or stripped == "main()":
-            continue
-
-        # Keluar dari mode hapus isi fungsi jika sudah selesai (indentasi habis)
-        if hapus:
-            if skip_mode == "main_def" and (not line.startswith("    ") or stripped == ""):
-                hapus = False
-                skip_mode = None
-
-        if not hapus:
-            hasil.append(line)
+        hasil.append(line)
 
     return hasil
     
 #====================================================================================================
 
-for code in codes:
-    url = f"{github_base_url}/{code}"
-    kodingan = requests.get(url).text
-    lines = kodingan.splitlines()
+def run_code(codes):
 
-    if code == "nekopoi.py":
-        lines = clear_nekopoi(lines)
-                
-    # Hapus semua baris 'from ...' KECUALI 'from bs4 import BeautifulSoup'
-    lines = [
-        line for line in lines
-        if not (line.strip().startswith("from") and line.strip() != "from bs4 import BeautifulSoup")
-    ]
+    if os.path.exists("tmdb.log"):
+        return
+    
+    # Hapus semua baris 'from ...' KECUALI dua ini:
+    allowed_froms = {
+        "from bs4 import BeautifulSoup"
+    }
+    
+    for code in codes:
+        url = f"{github_base_url}/{code}"
+        kodingan = requests.get(url).text
+        lines = kodingan.splitlines()
 
-    kodingan_bersih = "\n".join(lines)
+        if code == "nekopoi.py":
+            lines = clear_nekopoi(lines)
+                        
+        lines = [
+            line for line in lines
+            if not (line.strip().startswith("from") and line.strip() not in allowed_froms)
+        ]
 
-    if code == "api.py":
-        kodingan_bersih = kodingan_bersih.replace('load_dotenv()', '').replace('os.getenv("TMDB_API_KEY")', API_KEY)
+        kodingan_bersih = "\n".join(lines)
 
-    exec(kodingan_bersih)
+        if code == "api.py":
+            kodingan_bersih = kodingan_bersih.replace('load_dotenv()', '').replace('os.getenv("TMDB_API_KEY")', API_KEY)
+
+        exec(kodingan_bersih)
+
+    with open("tmdb.log", "w") as f:
+        f.write("done")
 
 #====================================================================================================
 
 def main(tipe=None, id=None, title=None, koleksi=None, season=1):
+    run_code(codes)
     if not tipe:
         tipe = input("Pilih tipe (movie/tv): ").strip().lower()
         
