@@ -57,7 +57,6 @@ def searching(cari, halaman=1):
    
         return title, studios, genres
     except Exception as e:
-        print(f"Terjadi kesalahan: {e}")
         return None, None, None
 
 def main():

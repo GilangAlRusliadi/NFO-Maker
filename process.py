@@ -6,7 +6,7 @@ from nekopoi import searching
 
 invalid_chars = r'[\/:*?"<>|]'
 
-def run_tv(tv_id, title="", koleksi=None, season_number=1):
+def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     if tv_id.startswith("http"):
         if len(tv_id.split("/")) > 5:
             tv_id = tv_id.split("/")[4].split("-")[0].split("?")[0]
@@ -101,7 +101,7 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
         filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
         save_nfo(title, episode_nfo_content, filename, "tv", season_number)
 
-def run_movie(movie_id, title="", koleksi=None):
+def run_movie(movie_id, title=None, koleksi=None):
     if movie_id.startswith("http"):
         if len(movie_id.split("/")) > 5:
             movie_id = movie_id.split("/")[4].split("-")[0].split("?")[0]
