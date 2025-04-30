@@ -34,27 +34,31 @@ def info_nekopoi(url):
     return title, sorted(producers), sorted(genres)
 
 def searching(cari, halaman=1):
-    search = 'https://nekopoi.care/search/' + cari.replace(' ', '+') + '/page/{}/'
+    try:
+        search = 'https://nekopoi.care/search/' + cari.replace(' ', '+') + '/page/{}/'
 
-    series = []
+        series = []
 
-    # Iterate over the pages
-    for page in range(1, halaman+1):
-        url = search.format(page)
-        response = scraper.get(url, headers=headers)
-        soup = BeautifulSoup(response.text, 'html.parser')
+        # Iterate over the pages
+        for page in range(1, halaman+1):
+            url = search.format(page)
+            response = scraper.get(url, headers=headers)
+            soup = BeautifulSoup(response.text, 'html.parser')
 
-        links = soup.find_all('a')
-        for link in links:
-            href = link.get('href')
-            if href and 'https://nekopoi.care/hentai/' in href:
-                series.append(href)
+            links = soup.find_all('a')
+            for link in links:
+                href = link.get('href')
+                if href and 'https://nekopoi.care/hentai/' in href:
+                    series.append(href)
 
-    for url in series:
-        title, studios, genres = info_nekopoi(url)
-        break
+        for url in series:
+            title, studios, genres = info_nekopoi(url)
+            break
    
-    return title, studios, genres
+        return title, studios, genres
+    except Exception as e:
+        print(f"Terjadi kesalahan: {e}")
+        return None, None, None
 
 def main():
     cari = input("Masukkan Pencarian: ").strip().lower()
