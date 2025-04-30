@@ -6,7 +6,8 @@ load_dotenv()  # untuk memuat .env
 
 API_KEY = os.getenv("TMDB_API_KEY")
 # Authorization = os.getenv("TMDB_Authorization")
-BASE_URL = 'https://api.themoviedb.org/3'
+BASE_URL = "https://api.themoviedb.org/3"
+
 params = {
     "api_key": API_KEY,
     "language": "en-US"
