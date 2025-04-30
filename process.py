@@ -1,5 +1,5 @@
 import re
-from api import get_series_details, get_season_details, get_credits, get_images
+from api import get_series_details, get_season_details, get_credits, get_images, get_censorship
 from nfo import generate_series_nfo, generate_episode_nfo, generate_movie_nfo, save_nfo
 from download import download_movie_image, download_tvshow_image
 from nekopoi import searching
@@ -66,9 +66,15 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
         if nekopoi_genres:
             genres = nekopoi_genres
 
+    if series_data.get('adult') == True:
+        censorship = "TV-MA"
+    else:
+        censorship = get_censorship(tv_id, "tv")
+
     series_nfo_content = generate_series_nfo(
         series_title, rating, description, premiered,
-        tmdbid, imdbid, sorted(studios), sorted(genres), actors, posters, fanarts, collection
+        tmdbid, imdbid, sorted(studios), sorted(genres),
+        actors, posters, fanarts, censorship, collection
     )
 
     if not title:
@@ -98,7 +104,7 @@ def run_tv(tv_id, title="", koleksi=None, season_number=1):
 def run_movie(movie_id, title="", koleksi=None):
     if movie_id.startswith("http"):
         if len(movie_id.split("/")) > 5:
-            tv_id = movie_id.split("/")[4].split("-")[0].split("?")[0]
+            movie_id = movie_id.split("/")[4].split("-")[0].split("?")[0]
 
     # Ambil data movie
     movie_data = get_series_details(movie_id, "movie")
@@ -142,9 +148,16 @@ def run_movie(movie_id, title="", koleksi=None):
     genres = [genre['name'] for genre in movie_data.get('genres', [])]
     year = premiered.split('-')[0] if premiered else 'Unknown'
     
+    if movie_data.get('adult') == True:
+        genres.append('Adult')
+        censorship = "NC-17"
+    else:
+        censorship = get_censorship(movie_id, "movie")
+
     movie_nfo_content = generate_movie_nfo(
         movies_title, rating, description, premiered,
-        tmdbid, imdbid, sorted(studios), sorted(genres), actors, posters, fanarts, collection
+        tmdbid, imdbid, sorted(studios), sorted(genres),
+        actors, posters, fanarts, censorship, collection
     )
 
     if not title:

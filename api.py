@@ -63,6 +63,33 @@ def get_credits(id, tipe):
     else:
         print(f"Gagal mengambil credits untuk ID {id}")
         return []
+    
+def get_censorship(id, tipe):
+    if tipe == "movie":
+        censorship_url = f"{BASE_URL}/movie/{id}/release_dates"
+    else:
+        censorship_url = f"{BASE_URL}/tv/{id}/content_ratings"
+
+    response = requests.get(censorship_url, params=params)
+    
+    if response.status_code == 200:
+        censorship = response.json()
+        
+        if tipe == "movie":
+            for entry in censorship.get("results", []):
+                if entry.get("iso_3166_1") == "US":  # Prioritaskan rating dari US
+                    for rel in entry.get("release_dates", []):
+                        cert = rel.get("certification", "")
+                        if cert:
+                            return cert
+        else:  # TV
+            for entry in censorship.get("results", []):
+                if entry.get("iso_3166_1") == "US":
+                    return entry.get("rating", "")
+        return ""  # fallback jika tidak ada rating ditemukan
+    else:
+        print(f"Gagal mengambil rating untuk ID {id}")
+        return ""
 
 def get_images(id, tipe):
     # Menghapus parameter 'language' dari params

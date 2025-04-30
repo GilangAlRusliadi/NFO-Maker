@@ -6,7 +6,7 @@ def pisah_kecil_besar(teks):
     hasil = re.sub(r'([a-z])([A-Z])', r'\1 \2', teks)
     return hasil
 
-def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection=None):
+def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, censorship, collection=None):
     # genre_str = ' / '.join(genres) if genres else ''
 
     nfo = f"""<?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -15,9 +15,9 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
     <originaltitle>{title}</originaltitle>
     <rating>{rating}</rating>
     <plot>{plot}</plot>
-    <mpaa>NC-17</mpaa>
+    <mpaa>{censorship}</mpaa>
     <premiered>{premiered}</premiered>
-    <tmdbid>{tmdbid}</tmdbid>
+    <id>{tmdbid}</id>
     <imdbid>{imdbid}</imdbid>
 """
 
@@ -31,6 +31,7 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
 
     # Jika ada Collection
     if collection:
+        nfo += "\n"
         set_id = collection.get('id', '')
         set_name = collection.get('name', '')
         set_overview = collection.get('overview', '')
@@ -49,6 +50,7 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
 """
         
     # Tambahkan actors
+    nfo += "\n"
     if actors:
         for actor in actors:
             actor_name = actor.get("name", "Unknown Actor")
@@ -76,17 +78,16 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
             
     return nfo
 
-def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, collection=None):
+def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, censorship, collection=None):
     nfo = f"""<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tvshow>
   <title>{series_title}</title>
   <showtitle>{series_title}</showtitle>
   <rating>{rating}</rating>
   <plot>{description}</plot>
-  <mpaa>TV-MA</mpaa>
+  <mpaa>{censorship}</mpaa>
   <premiered>{premiered}</premiered>
   <id>{tmdbid}</id>
-  <tmdbid>{tmdbid}</tmdbid>
   <imdbid>{imdbid}</imdbid>"""
 
     # Studio
