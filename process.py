@@ -14,11 +14,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     # Ambil data series dan season
     series_data = get_series_details(tv_id, "tv")
     if not series_data:
-        return
-    
-    season_data = get_season_details(tv_id, season_number)
-    if not season_data:
-        return
+        return    
 
     # Ambil data terkait lainnya (credits, images)
     actors = get_credits(tv_id, "tv")
@@ -48,6 +44,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     # Buat NFO untuk series
     series_title = series_data.get('name', 'Unknown Title')
     rating = series_data.get('vote_average', '0')
+    total_season = series_data.get('number_of_seasons', 0)
     description = series_data.get('overview', 'No description.')
     premiered = series_data.get('first_air_date', '')
     tmdbid = series_data.get('id', '')
@@ -82,7 +79,8 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
 
     title = re.sub(invalid_chars, ' ', title)
     title = title.strip()
-    save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv", season_number)
+        
+    save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv")
 
     # Download images
     if posters:
@@ -91,15 +89,35 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
         download_tvshow_image(fanarts[-1]['original'], title, "fanart")
 
     # Buat NFO untuk setiap episode
-    episodes = season_data.get('episodes', [])
-    for episode_data in episodes:
-        episode_number = episode_data.get('episode_number')
-        # title = episode_data.get('name', 'Unknown Title')
-        aired = episode_data.get('air_date', '')
-        plot = episode_data.get('overview', 'No description.')
-        episode_nfo_content = generate_episode_nfo(title, plot, aired, episode_number, season_number)
-        filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
-        save_nfo(title, episode_nfo_content, filename, "tv", season_number)
+    if total_season > 1:
+        for season_number in range(1, total_season + 1):
+            season_data = get_season_details(tv_id, season_number)
+            episodes = season_data.get('episodes', [])
+            for episode_data in episodes:
+                episode_number = episode_data.get('episode_number')
+                # title = episode_data.get('name', 'Unknown Title')
+                aired = episode_data.get('air_date', '')
+                plot = episode_data.get('overview', 'No description.')
+                episode_nfo_content = generate_episode_nfo(title, plot, aired, episode_number, season_number)
+                filename = f'Season {season_number:02d}/{title}.S{season_number:02d}E{episode_number:02d}.nfo'
+                save_nfo(title, episode_nfo_content, filename, "tv")
+    else:
+        season_data = get_season_details(tv_id, season_number)
+        episodes = season_data.get('episodes', [])
+        for episode_data in episodes:
+            episode_number = episode_data.get('episode_number')
+            # title = episode_data.get('name', 'Unknown Title')
+            aired = episode_data.get('air_date', '')
+            plot = episode_data.get('overview', 'No description.')
+            episode_nfo_content = generate_episode_nfo(title, plot, aired, episode_number, season_number)
+            
+            if total_season > 1:
+                filename = rf'Season {season_number:02d}\{title}.S{season_number:02d}E{episode_number:02d}.nfo'
+            else:
+                filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
+
+            save_nfo(title, episode_nfo_content, filename, "tv")
+
 
 def run_movie(movie_id, title=None, koleksi=None):
     if movie_id.startswith("http"):

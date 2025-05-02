@@ -80,7 +80,7 @@ def run_code(codes):
         f.write(now)
 #====================================================================================================
 
-def main(tipe=None, id=None, title=None, koleksi=None, season=1):
+def main(tipe=None, id=None, title=None, koleksi=None):
     run_code(codes)
     if not id:
         id = input("Masukkan ID/Link TMDB: ").strip()
@@ -96,14 +96,14 @@ def main(tipe=None, id=None, title=None, koleksi=None, season=1):
             id = int(input("Masukkan TV ID: ").strip())
             title = input("Masukkan judul series (Optional): ").strip()
             koleksi = input("Masukkan collection (Optional): ").strip()     
-        run_tv(id, title, koleksi, season)
+        run_tv(id, title, koleksi)
 
     elif tipe == "movie":
         if not id:
             id = int(input("Masukkan Movie ID: ").strip())
             title = input("Masukkan judul movie (Optional): ").strip()
             koleksi = input("Masukkan collection (Optional): ").strip()
-        run_movie(id, title or None, koleksi or None)
+        run_movie(id, title, koleksi)
 
     else:
         print("Tipe tidak dikenali.")

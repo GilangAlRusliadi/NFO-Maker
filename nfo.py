@@ -154,7 +154,7 @@ def generate_episode_nfo(episode_title, episode_plot, aired_date, episode_number
 </episodedetails>"""
     return nfo
 
-def save_nfo(title, content, filename, tipe="movie", season=1, year=None):
+def save_nfo(title, content, filename, tipe="movie", year=None):
     if tipe == "movie":
         filename = f"movie.nfo"
         if year is None:
@@ -164,16 +164,13 @@ def save_nfo(title, content, filename, tipe="movie", season=1, year=None):
         os.makedirs(dir, exist_ok=True)
 
     elif tipe == "tv":
-        if season > 1:
-            dir = os.path.join("MyAnime", title, f"Season {season:02d}")
-        else:
-            dir = os.path.join("MyAnime", title)
+        dir = os.path.join("MyAnime", title, os.path.dirname(filename))
         os.makedirs(dir, exist_ok=True)
 
     else:
         raise ValueError("Tipe harus 'movie' atau 'tv'.")
 
-    filepath = os.path.join(dir, filename)
+    filepath = os.path.join(dir, os.path.basename(filename))
     with open(filepath, 'w', encoding='utf-8') as f:
         f.write(content)
 
