@@ -129,7 +129,7 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
 \t</actor>"""
         
     # Art section
-    nfo += "\n    <art>"
+    nfo += "\n\t<art>"
 
     # Posters
     for poster in posters:
