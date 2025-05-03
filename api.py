@@ -123,9 +123,9 @@ def get_images(id, tipe):
         print(f"Gagal mengambil images untuk ID {id}")
         return [], []
 
-def search_tmdb(query):
+def search_tmdb(query, tipe):
     params["query"] = query
-    search_url = f"{BASE_URL}/search/multi"  # 'multi' mencari film dan acara TV    
+    search_url = f"{BASE_URL}/search/{tipe}"  # 'multi' mencari film dan acara TV    
     response = requests.get(search_url, params=params)
     if response.status_code == 200:
         search_results = response.json()

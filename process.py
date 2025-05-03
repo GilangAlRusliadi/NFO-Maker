@@ -89,35 +89,42 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
         download_tvshow_image(fanarts[-1]['original'], title, "fanart")
 
     # Buat NFO untuk setiap episode
-    if total_season > 1:
-        for season_number in range(1, total_season + 1):
+
+    #Cek Special (Season 0)  
+    special_season = get_season_details(tv_id, 0)
+
+    if total_season > 1 or special_season:
+        for season_number in range(total_season + 1):
             season_data = get_season_details(tv_id, season_number)
-            episodes = season_data.get('episodes', [])
-            for episode_data in episodes:
-                episode_number = episode_data.get('episode_number')
-                # title = episode_data.get('name', 'Unknown Title')
-                aired = episode_data.get('air_date', '')
-                plot = episode_data.get('overview', 'No description.')
-                episode_nfo_content = generate_episode_nfo(title, plot, aired, episode_number, season_number)
-                filename = f'Season {season_number:02d}/{title}.S{season_number:02d}E{episode_number:02d}.nfo'
-                save_nfo(title, episode_nfo_content, filename, "tv")
+            if season_data:
+                episodes = season_data.get('episodes', [])
+                for episode_data in episodes:
+                    episode_number = episode_data.get('episode_number')
+                    name = episode_data.get('name', 'Unknown Title')
+                    aired = episode_data.get('air_date', '')
+                    plot = episode_data.get('overview', 'No description.')
+
+                    if "OVA" in name.upper() or name == "Unknown Title":
+                        name = series_title
+
+                    episode_nfo_content = generate_episode_nfo(name, plot, aired, episode_number, season_number)
+                    filename = f'Season {season_number:02d}/{title}.S{season_number:02d}E{episode_number:02d}.nfo'
+                    save_nfo(title, episode_nfo_content, filename, "tv")
     else:
         season_data = get_season_details(tv_id, season_number)
         episodes = season_data.get('episodes', [])
         for episode_data in episodes:
             episode_number = episode_data.get('episode_number')
-            # title = episode_data.get('name', 'Unknown Title')
+            name = episode_data.get('name', 'Unknown Title')
             aired = episode_data.get('air_date', '')
             plot = episode_data.get('overview', 'No description.')
-            episode_nfo_content = generate_episode_nfo(title, plot, aired, episode_number, season_number)
-            
-            if total_season > 1:
-                filename = rf'Season {season_number:02d}\{title}.S{season_number:02d}E{episode_number:02d}.nfo'
-            else:
-                filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
 
+            if "OVA" in name.upper() or name == "Unknown Title":
+                name = series_title
+
+            episode_nfo_content = generate_episode_nfo(name, plot, aired, episode_number, season_number)
+            filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
             save_nfo(title, episode_nfo_content, filename, "tv")
-
 
 def run_movie(movie_id, title=None, koleksi=None):
     if movie_id.startswith("http"):
