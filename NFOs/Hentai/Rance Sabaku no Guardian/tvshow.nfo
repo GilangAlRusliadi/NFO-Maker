@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tvshow>
+	<title>Rance: Sabaku no Guardian</title>
+	<showtitle>Rance: Sabaku no Guardian</showtitle>
+	<rating>8.0</rating>
+	<plot></plot>
+	<mpaa>TV-MA</mpaa>
+	<premiered>1993-12-25</premiered>
+	<id>124156</id>
+	<imdbid></imdbid>
+	<studio>Unknown Studio</studio>
+	<art>
+		<poster>https://image.tmdb.org/t/p/original/v1ljNzy0raWRo5gewIe82v3Esen.jpg</poster>
+		<poster>https://image.tmdb.org/t/p/original/zWHGOFVFLlQSUQKDKFDPNuO1DAl.jpg</poster>
+		<poster>https://image.tmdb.org/t/p/original/zWHGOFVFLlQSUQKDKFDPNuO1DAl.jpg</poster>
+		<fanart>https://image.tmdb.org/t/p/original/rT2BhSfu8B1HhIbiaJKValVcd6U.jpg</fanart>
+	</art>
+</tvshow>
