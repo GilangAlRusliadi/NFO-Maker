@@ -28,7 +28,10 @@ def download_tvshow_image(url, title, tipe, season=1):
     os.makedirs(dir, exist_ok=True)
 
     # Path lengkap file
-    name = f"{tipe}.jpg"
+    if tipe == "season":
+        name = f"season{season:02d}-poster.jpg"
+    else:
+        name = f"{tipe}.jpg"
 
     filepath = os.path.join(dir, name)
 

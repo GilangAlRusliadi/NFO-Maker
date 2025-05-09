@@ -57,7 +57,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     if title:
         nekopoi_title, nekopoi_studio, nekopoi_genres = searching(title)
         if nekopoi_title:
-            series_title = nekopoi_title
+            series_title = nekopoi_title.replace("The Animation", "").replace("  ", " ").strip()
         if nekopoi_studio:
             studios = nekopoi_studio
         if nekopoi_genres:
@@ -97,17 +97,22 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
         for season_number in range(total_season + 1):
             season_data = get_season_details(tv_id, season_number)
             if season_data:
+                season_poster = season_data.get('poster_path', '')
+                if season_poster:
+                    download_tvshow_image(f'https://image.tmdb.org/t/p/original{season_poster}', title, "season", season_number)
+
                 episodes = season_data.get('episodes', [])
                 for episode_data in episodes:
                     episode_number = episode_data.get('episode_number')
                     name = episode_data.get('name', 'Unknown Title')
                     aired = episode_data.get('air_date', '')
+                    thumbnail_url = episode_data.get('still_path', '')
                     plot = episode_data.get('overview', 'No description.')
 
                     if "OVA" in name.upper() or name == "Unknown Title":
                         name = series_title
 
-                    episode_nfo_content = generate_episode_nfo(name, plot, aired, episode_number, season_number)
+                    episode_nfo_content = generate_episode_nfo(name, plot, thumbnail_url, aired, episode_number, season_number)
                     filename = f'Season {season_number:02d}/{title}.S{season_number:02d}E{episode_number:02d}.nfo'
                     save_nfo(title, episode_nfo_content, filename, "tv")
     else:
@@ -117,12 +122,13 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
             episode_number = episode_data.get('episode_number')
             name = episode_data.get('name', 'Unknown Title')
             aired = episode_data.get('air_date', '')
+            thumbnail_url = episode_data.get('still_path', '')
             plot = episode_data.get('overview', 'No description.')
 
             if "OVA" in name.upper() or name == "Unknown Title":
                 name = series_title
 
-            episode_nfo_content = generate_episode_nfo(name, plot, aired, episode_number, season_number)
+            episode_nfo_content = generate_episode_nfo(name, plot, thumbnail_url, aired, episode_number, season_number)
             filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
             save_nfo(title, episode_nfo_content, filename, "tv")
 

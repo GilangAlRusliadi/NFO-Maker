@@ -129,6 +129,7 @@ celerybeat.pid
 
 # Don't Upload
 testing/
+NFOs/
 *.jpg
 *.png
 *.jpeg

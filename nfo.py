@@ -143,14 +143,16 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
 
     return nfo
 
-def generate_episode_nfo(episode_title, episode_plot, aired_date, episode_number, season_number=1):
+def generate_episode_nfo(episode_title, episode_plot, thumbnail_url, aired_date, episode_number, season_number=1):
     nfo = f"""<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <episodedetails>
 \t<title>{episode_title}</title>
 \t<season>{season_number}</season>
 \t<episode>{episode_number}</episode>
-\t<aired>{aired_date}</aired>
-\t<plot>{episode_plot}</plot>
+\t<aired>{aired_date}</aired>"""
+    if thumbnail_url:
+        nfo += f"\n\t<thumb>https://image.tmdb.org/t/p/original{thumbnail_url}</thumb>"
+    nfo += f"""\n\t<plot>{episode_plot}</plot>
 </episodedetails>"""
     return nfo
 
