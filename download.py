@@ -21,7 +21,7 @@ def download_movie_image(url, title, year, tipe="poster"):
 
 def download_tvshow_image(url, title, tipe, season=1):
     # Pastikan folder tujuan ada
-    if season > 1:
+    if season > 1 and tipe != "season":
         dir = os.path.join("MyAnime", title, f"Season {season:02d}")
     else:
         dir = os.path.join("MyAnime", title)
