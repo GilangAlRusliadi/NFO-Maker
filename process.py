@@ -91,7 +91,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     # Buat NFO untuk setiap episode
 
     #Cek Special (Season 0)  
-    special_season = get_season_details(tv_id, 0)
+    special_season = series_data.get('seasons')[0].get('name') == "Specials"
 
     if total_season > 1 or special_season:
         for season_number in range(total_season + 1):
