@@ -6,12 +6,8 @@ from datetime import datetime
 try:
     import cloudscraper
 except ImportError:
-    subprocess.run(['pip', 'install', 'cloudscraper', 'python-dotenv'])
+    subprocess.run(['pip', 'install', 'cloudscraper'])
     import cloudscraper
-
-from dotenv import load_dotenv
-load_dotenv()  # untuk memuat .env
-API_KEY = os.getenv("TMDB_API_KEY")
 
 github_base_url = "https://raw.githubusercontent.com/GilangAlRusliadi/NFO-Maker/refs/heads/main"
 codes = ["api.py", "download.py", "nekopoi.py", "nfo.py", "process.py"]
@@ -69,9 +65,6 @@ def run_code(codes):
         ]
 
         kodingan_bersih = "\n".join(lines)
-
-        if code == "api.py":
-            kodingan_bersih = kodingan_bersih.replace('load_dotenv()', '').replace('os.getenv("TMDB_API_KEY")', f'"{API_KEY}"')
 
         exec(kodingan_bersih, globals())
 

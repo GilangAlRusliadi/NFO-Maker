@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tvshow>
+	<title>Rance 01: Hikari wo Motomete</title>
+	<showtitle>Rance 01: Hikari wo Motomete</showtitle>
+	<rating>6.0</rating>
+	<plot>Anime adaptation of the 2013 remake of the 1989 AliceSoft adult PC game Rance 01.
+
+Rance follows the namesake hero who is tasked with finding and protecting the daughter of a guild owner; however, the case turns out to be much deeper than it initially appears to be.</plot>
+	<mpaa>TV-MA</mpaa>
+	<premiered>2014-12-26</premiered>
+	<id>79426</id>
+	<imdbid></imdbid>
+	<studio>Pink Pineapple</studio>
+	<genre>Ahegao</genre>
+	<genre>Big Oppai</genre>
+	<genre>Forced</genre>
+	<genre>Humiliation</genre>
+	<genre>Loli</genre>
+	<genre>Maid</genre>
+	<genre>Oral</genre>
+	<genre>Stocking</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/jF55pG9OL1j91atG96fAh5u9RFD.jpg</thumb>
+
+	<fanart>
+		<thumb>https://gilbertclaus.pythonanywhere.com/TMDB/TV/Rance%20Hikari%20wo%20Motomete/fanart.jpg</thumb>
+	</fanart>
+
+	<namedseason number="0">Specials</namedseason>
+	<thumb aspect="poster" type="season" season="0">https://gilbertclaus.pythonanywhere.com/TMDB/TV/Rance%20Hikari%20wo%20Motomete/season00-poster.jpg</thumb>
+	<namedseason number="1">Season 1</namedseason>
+	<thumb aspect="poster" type="season" season="1">https://gilbertclaus.pythonanywhere.com/TMDB/TV/Rance%20Hikari%20wo%20Motomete/season01-poster.jpg</thumb>
+
+	<actor>
+		<name>Kazuki Yao</name>
+		<role>Rance (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/kjETB1FaDaGozGjdq4Hu1UjrQDf.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Yuiko Tatsumi</name>
+		<role>Sill Plain (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/3bLpouZ8983S9HkMaiuVTAZ5Obf.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Maki Kobayashi</name>
+		<role>Menad Shisei (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/3In2CeRmQNfWANOvzVnmKG752J.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Harumi Sakurai</name>
+		<role>Nazo no Ninja (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/ekqKChF19cjjrSB1LYpP6QDJoVR.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Sahomi Koyama</name>
+		<role>Necai Sys (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/iRWyY5PUi7IoFxxrRv0DoQ9Qane.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Kei Mizusawa</name>
+		<role>Pulptenks Flanders (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/gzgZUORk6MwCIahJnYJyxndShuB.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Jun Miruno</name>
+		<role>Ria Parapara Leazas (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/vjpjQBWag8oaf6Y0L22ikE2RAnT.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Airi Sakuno</name>
+		<role>Hikari mi Bran (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/eEN3bMv2waiWAehHGRfjNRakFvH.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Hiromi Hirata</name>
+		<role>Maris Amarilis (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/tTCSA3EltKrN8DslS8dAFt4Dy3r.jpg</thumb>
+	</actor>
+	<actor>
+		<name>Naruse Ichii</name>
+		<role>Yulang Mirage (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300None</thumb>
+	</actor>
+</tvshow>

@@ -1,18 +1,11 @@
-import os
 import requests
-from dotenv import load_dotenv
 
-load_dotenv()  # untuk memuat .env
-
-API_KEY = os.getenv("TMDB_API_KEY")
-# Authorization = os.getenv("TMDB_Authorization")
+API_KEY = "f090bb54758cabf231fb605d3e3e0468"
 BASE_URL = "https://api.themoviedb.org/3"
 
 params = {
     "api_key": API_KEY,
     "language": "en-US"
-    # "Authorization": Authorization,
-    # "append_to_response": "external_ids"
 }
 
 def get_series_details(id, tipe):
@@ -91,37 +84,32 @@ def get_censorship(id, tipe):
     else:
         print(f"Gagal mengambil rating untuk ID {id}")
         return ""
-
+    
 def get_images(id, tipe):
     # Menghapus parameter 'language' dari params
     params_no_language = {key: value for key, value in params.items() if key != 'language'}
-    
+
     if tipe == "movie":
         images_url = f"{BASE_URL}/movie/{id}/images"
     else:
         images_url = f"{BASE_URL}/tv/{id}/images"        
+
     response = requests.get(images_url, params=params_no_language)
     if response.status_code == 200:
         images = response.json()
-        posters = []
-        fanarts = []
-        if 'posters' in images:
-            for img in images['posters'][:3]:
-                posters.append({
-                    'preview': f"https://image.tmdb.org/t/p/w300{img['file_path']}",
-                    'original': f"https://image.tmdb.org/t/p/original{img['file_path']}"
-                })
-        if 'backdrops' in images:
-            for img in images['backdrops'][:3]:
-                fanarts.append({
-                    'preview': f"https://image.tmdb.org/t/p/w300{img['file_path']}",
-                    'original': f"https://image.tmdb.org/t/p/original{img['file_path']}"
-                })
-        # return images.get('posters', []), images.get('backdrops', [])
-        return posters, fanarts
+        poster = ""
+        fanart = ""
+
+        if 'posters' in images and images['posters']:
+            poster = f"https://image.tmdb.org/t/p/original{images['posters'][0]['file_path']}"
+
+        if 'backdrops' in images and images['backdrops']:
+            fanart = f"https://image.tmdb.org/t/p/original{images['backdrops'][0]['file_path']}"
+
+        return poster, fanart
     else:
         print(f"Gagal mengambil images untuk ID {id}")
-        return [], []
+        return "", ""
 
 def search_tmdb(query, tipe):
     params["query"] = query

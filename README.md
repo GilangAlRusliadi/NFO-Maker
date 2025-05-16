@@ -1,51 +1,46 @@
+
 # NFO Maker for Kodi
 
-**NFO Maker** adalah proyek skrip yang dirancang untuk membantu pengguna Kodi dalam mengimpor konten dewasa dari TMDb (The Movie Database). Dengan menggunakan skrip ini, konten dengan rating **NC-17** atau **TV-MA** (termasuk hentai) dapat disaring dan diunduh dengan lebih tepat, menghindari kesalahan informasi dan cover yang sering terjadi pada scraper otomatis Kodi.
+**NFO Maker** is a script project designed to help Kodi users import adult content from TMDb (The Movie Database). With this script, content rated **NC-17** or **TV-MA** (including hentai) can be filtered and downloaded more accurately, avoiding the common metadata and cover errors that happen with Kodi's automatic scraper.
 
-## Fitur Utama:
-- Scraping otomatis dari TMDb untuk konten dewasa.
-- Menghindari kesalahan dalam pencarian cover dan metadata yang terjadi pada konten dengan rating **TV-MA**, seperti hentai.
-- Membuat file NFO yang sesuai dengan format yang diterima Kodi.
-- Menyediakan metadata dan cover yang lebih tepat untuk konten dengan rating **NC-17** atau **TV-MA**.
+## Key Features:
+- Automatically scrapes adult content from TMDb.
+- Avoids metadata and cover issues for **TV-MA**-rated content such as hentai.
+- Generates NFO files in a format accepted by Kodi.
+- Provides more accurate metadata and covers for **NC-17** or **TV-MA** content.
 
-## Masalah yang Diselesaikan:
-Kodi secara default hanya dapat menangani scraping untuk konten dengan rating maksimal **TV-14** atau **R**, sedangkan konten dengan rating **NC-17** atau **TV-MA** sering kali tidak terdeteksi dengan benar. Hal ini mengakibatkan kesalahan dalam informasi dan cover yang ditampilkan.
+## Problem It Solves:
+By default, Kodi can only scrape content rated up to **TV-14** or **R**. Content rated **NC-17** or **TV-MA** is often not detected correctly, resulting in incorrect metadata and covers.
 
-Dengan NFO Maker, Anda dapat memastikan bahwa semua jenis konten dewasa, termasuk hentai, memiliki metadata yang sesuai dan cover yang akurat.
+With NFO Maker, you can ensure that all adult content, including hentai, gets proper metadata and accurate covers.
 
-## Instalasi:
-1. **Dapatkan API Key dari TMDb**:
-   - Kunjungi [TMDb](https://www.themoviedb.org/) dan buat akun jika belum memiliki.
-   - Setelah itu, pergi ke [halaman API](https://www.themoviedb.org/settings/api) untuk mendapatkan API Key.
+## Installation:
 
-2. **Pasang Python**:
-   - Pastikan Anda telah menginstal Python di sistem Anda.
+1. **Install Python**:
+   - Make sure Python is installed on your system.
 
-3. **Install dependensi**:
-   - Install dependensi yang diperlukan menggunakan perintah:
+2. **Install dependencies**:
+   - Install the required dependencies using:
      ```bash
      pip install -r requirements.txt
      ```
 
-4. **Buat file `.env`**:
-   - Di dalam folder repositori, buat file `.env` dan tambahkan baris berikut:
+3. **Create a `.env` file**:
+   - Inside the repository folder, create a `.env` file and add the following line:
      ```
      TMDB_API_KEY=your_api_key_here
      ```
-   - Gantilah `your_api_key_here` dengan API key yang Anda dapatkan dari TMDb.
+   - Replace `your_api_key_here` with your actual TMDb API key.
 
-5. **Unduh skrip NFO Maker**:
-   - Unduh skrip **NFO Maker** dan simpan di direktori Kodi Anda.
+4. **Download the NFO Maker script**:
+   - Download the **NFO Maker** script and place it in your Kodi directory.
 
-## Cara Penggunaan:
-1. **Jalankan skrip** dengan perintah:
+## How to Use:
+1. **Run the script** with:
    ```bash
    python main.py
-     ```
+   ```
 
-2. Skrip akan meminta input ID movie/tv dari Anda untuk konten
-   yang ingin di-scrape (misalnya, nama anime atau film dewasa)
-   atau bisa juga Anda langsung pastekan urlnya.
+2. The script will prompt you to enter the movie/TV ID or paste the full URL of the content you want to scrape (e.g., the name of an anime or adult movie).
 
-3. Metadata dan cover akan diunduh dan disimpan
-   dalam format NFO yang sesuai untuk Kodi.
+3. Metadata and covers will be downloaded and saved in the NFO format compatible with Kodi.

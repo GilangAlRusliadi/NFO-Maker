@@ -6,7 +6,7 @@ def pisah_kecil_besar(teks):
     hasil = re.sub(r'([a-z])([A-Z])', r'\1 \2', teks)
     return hasil
 
-def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, censorship, collection=None):
+def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, poster, fanart, censorship, collection=None):
     # genre_str = ' / '.join(genres) if genres else ''
 
     nfo = f"""<?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -29,6 +29,14 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
     for genre in genres:
         nfo += f"\n\t<genre>{pisah_kecil_besar(genre)}</genre>"
 
+    # Posters
+    nfo += f'\n\n\t<thumb aspect="poster">{poster}</thumb>'
+
+    # Fanarts
+    nfo += "\n\n\t<fanart>"
+    nfo += f'\n\t\t<thumb>{fanart}</thumb>'  
+    nfo += "\n\t</fanart>\n"
+
     # Jika ada Collection
     if collection:
         nfo += "\n"
@@ -42,13 +50,10 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
 \t\t<id>{set_id}</id>
 \t\t<name>{set_name}</name>
 \t\t<overview>{set_overview}</overview>
-\t\t<posterLarge>https://image.tmdb.org/t/p/w342{poster_path}</posterLarge>
-\t\t<posterThumb>https://image.tmdb.org/t/p/w92{poster_path}</posterThumb>
-\t\t<backdropLarge>https://image.tmdb.org/t/p/w1280{backdrop_path}</backdropLarge>
-\t\t<backdropThumb>https://image.tmdb.org/t/p/w300{backdrop_path}</backdropThumb>
+\t\t<thumb aspect="poster">https://image.tmdb.org/t/p/original{poster_path}</thumb>
+\t\t<fanart>\n\t\t\t<thumb>https://image.tmdb.org/t/p/original{backdrop_path}</thumb></fanart>
 \t</set>
-"""
-        
+"""                
     # Tambahkan actors
     nfo += "\n"
     if actors:
@@ -64,21 +69,12 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
 """
         
     # Art section
-    nfo += "\n\t<art>"
 
-    # Posters
-    for poster in posters:
-        nfo += f'\n\t\t<poster>{poster["original"]}</poster>'
-
-    # Fanarts
-    for fanart in fanarts:
-        nfo += f'\n\t\t<fanart>{fanart["original"]}</fanart>'
-
-    nfo += "\n\t</art>\n</movie>"
+    nfo += "\n</movie>"
             
     return nfo
 
-def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studios, genres, actors, posters, fanarts, censorship, collection=None):
+def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studios, genres, actors, poster, fanart, censorship, collection=None, seasons_poster = []):
     nfo = f"""<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tvshow>
 \t<title>{series_title}</title>
@@ -98,6 +94,25 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
     for genre in genres:
         nfo += f"\n\t<genre>{pisah_kecil_besar(genre)}</genre>"
 
+    # Posters
+    nfo += f'\n\n\t<thumb aspect="poster">{poster}</thumb>'
+
+    # Fanarts
+    nfo += "\n\n\t<fanart>"
+    nfo += f'\n\t\t<thumb>{fanart}</thumb>'  
+    nfo += "\n\t</fanart>\n"
+
+    # Posters Season
+    if seasons_poster:
+        for season_poster in seasons_poster:
+            season_number = season_poster[0]
+            season_name = season_poster[1]
+            season_link = season_poster[2]
+            nfo += f'\n\t<namedseason number="{season_number}">{season_name}</namedseason>'
+            nfo += f'\n\t<thumb aspect="poster" type="season" season="{season_number}">{season_link}</thumb>'
+
+        nfo += "\n"
+
     # Jika ada Collection
     if collection:
         set_id = collection.get('id', '')
@@ -110,12 +125,11 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
 \t\t<id>{set_id}</id>
 \t\t<name>{set_name}</name>
 \t\t<overview>{set_overview}</overview>
-\t\t<posterLarge>https://image.tmdb.org/t/p/w342{poster_path}</posterLarge>
-\t\t<posterThumb>https://image.tmdb.org/t/p/w92{poster_path}</posterThumb>
-\t\t<backdropLarge>https://image.tmdb.org/t/p/w1280{backdrop_path}</backdropLarge>
-\t\t<backdropThumb>https://image.tmdb.org/t/p/w300{backdrop_path}</backdropThumb>
-\t</set>"""
-
+\t\t<thumb aspect="poster">https://image.tmdb.org/t/p/original{poster_path}</thumb>
+\t\t<fanart>\n\t\t\t<thumb>https://image.tmdb.org/t/p/original{backdrop_path}</thumb></fanart>
+</set>
+"""
+        
     # Actors
     for actor in actors:
         actor_name = actor.get("name", "Unknown Actor")
@@ -129,18 +143,18 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
 \t</actor>"""
         
     # Art section
-    nfo += "\n\t<art>"
 
-    # Posters
-    for poster in posters:
-        nfo += f'\n\t\t<poster>{poster["original"]}</poster>'
+    nfo += "\n</tvshow>"
 
-    # Fanarts
-    for fanart in fanarts:
-        nfo += f'\n\t\t<fanart>{fanart["original"]}</fanart>'
+    return nfo
 
-    nfo += "\n\t</art>\n</tvshow>"
-
+def generate_season_nfo(season_title, season_plot, season_number=1):
+    nfo = f"""<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<season>
+\t<title>{season_title}</title>
+\t<seasonnumber>{season_number}</seasonnumber>
+\t<plot>{season_plot}</plot>
+</season>"""
     return nfo
 
 def generate_episode_nfo(episode_title, episode_plot, thumbnail_url, aired_date, episode_number, season_number=1):

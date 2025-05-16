@@ -1,6 +1,6 @@
 import re
 from api import get_series_details, get_season_details, get_credits, get_images, get_censorship
-from nfo import generate_series_nfo, generate_episode_nfo, generate_movie_nfo, save_nfo
+from nfo import generate_series_nfo, generate_season_nfo, generate_episode_nfo, generate_movie_nfo, save_nfo
 from download import download_movie_image, download_tvshow_image
 from nekopoi import searching
 
@@ -18,7 +18,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
 
     # Ambil data terkait lainnya (credits, images)
     actors = get_credits(tv_id, "tv")
-    posters, fanarts = get_images(tv_id, "tv")
+    poster, fanart = get_images(tv_id, "tv")
 
     # Cek apakah ada collection
     collection = None
@@ -68,38 +68,32 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     else:
         censorship = get_censorship(tv_id, "tv")
 
-    series_nfo_content = generate_series_nfo(
-        series_title, rating, description, premiered,
-        tmdbid, imdbid, sorted(studios), sorted(genres),
-        actors, posters, fanarts, censorship, collection
-    )
-
     if not title:
         title = series_title
 
     title = re.sub(invalid_chars, ' ', title)
-    title = title.strip()
-        
-    save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv")
-
-    # Download images
-    if posters:
-        download_tvshow_image(posters[-1]['original'], title, "poster")
-    if fanarts:
-        download_tvshow_image(fanarts[-1]['original'], title, "fanart")
+    title = title.strip()        
 
     # Buat NFO untuk setiap episode
 
-    #Cek Special (Season 0)  
+    # Cek Special (Season 0)  
     special_season = series_data.get('seasons')[0].get('name') == "Specials"
+    seasons_poster = []
 
     if total_season > 1 or special_season:
         for season_number in range(total_season + 1):
             season_data = get_season_details(tv_id, season_number)
             if season_data:
+                season_title = season_data.get('name', '')
                 season_poster = season_data.get('poster_path', '')
+                season_plot = season_data.get('overview', '')
+                
                 if season_poster:
-                    download_tvshow_image(f'https://image.tmdb.org/t/p/original{season_poster}', title, "season", season_number)
+                    link_season_poster = f'https://image.tmdb.org/t/p/original{season_poster}'
+                    seasons_poster.append([season_number, season_title, link_season_poster])
+                
+                season_nfo_content = generate_season_nfo(season_title, season_plot, season_number)
+                save_nfo(title, season_nfo_content, f'season{season_number:02d}.nfo', "tv")
 
                 episodes = season_data.get('episodes', [])
                 for episode_data in episodes:
@@ -131,6 +125,14 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
             episode_nfo_content = generate_episode_nfo(name, plot, thumbnail_url, aired, episode_number, season_number)
             filename = f'{title}.S{season_number:02d}E{episode_number:02d}.nfo'
             save_nfo(title, episode_nfo_content, filename, "tv")
+
+    series_nfo_content = generate_series_nfo(
+        series_title, rating, description, premiered,
+        tmdbid, imdbid, sorted(studios), sorted(genres),
+        actors, poster, fanart, censorship, collection, seasons_poster
+    )
+    
+    save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv")
 
 def run_movie(movie_id, title=None, koleksi=None):
     if movie_id.startswith("http"):
@@ -198,8 +200,8 @@ def run_movie(movie_id, title=None, koleksi=None):
     title = title.strip()
     save_nfo(title, movie_nfo_content, f"{title} ({year}).nfo", "movie", year=year)
 
-    # Download images
-    if posters:
-        download_movie_image(posters[-1]['original'], title, year, "poster")
-    if fanarts:
-        download_movie_image(fanarts[-1]['original'], title, year, "fanart")
+    # # Download images
+    # if posters:
+    #     download_movie_image(posters[-1]['original'], title, year, "poster")
+    # if fanarts:
+    #     download_movie_image(fanarts[-1]['original'], title, year, "fanart")

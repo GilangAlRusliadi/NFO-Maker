@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tvshow>
+	<title>Sleepless: A Midsummer Night's Dream - The Animation</title>
+	<showtitle>Sleepless: A Midsummer Night's Dream - The Animation</showtitle>
+	<rating>5.0</rating>
+	<plot>A large villa off the grid deep in a forest in the mountains – that’s where Ryohei Takamiya is to stay for a week as a tutor for the beautiful Maria. Although he was a little suspicious at first, the pay is too good for him to pass up the opportunity. Once there, he is greeted immediately by Airi Katagiri, the housemaid, and Marie Mamiya, the lady of the house herself. Even before the actual work begins, he is pampered by the three women … to his surprise, even on a sexual basis!</plot>
+	<mpaa>TV-MA</mpaa>
+	<premiered>2022-07-29</premiered>
+	<id>201107</id>
+	<imdbid></imdbid>
+	<studio>Showten</studio>
+	<genre>Animation</genre>
+	<actor>
+		<name>Maki Kobayashi</name>
+		<role>Aira Katagiri (voice)</role>
+		<thumb>https://image.tmdb.org/t/p/w300/3In2CeRmQNfWANOvzVnmKG752J.jpg</thumb>
+	</actor>
+	<art>
+		<poster>https://image.tmdb.org/t/p/original/7dN5pr5UAjxEeAiMZcgpuzbuOUD.jpg</poster>
+		<poster>https://image.tmdb.org/t/p/original/w8HHWPcF3wJFYEr6KTFlkGqRsvH.jpg</poster>
+		<poster>https://image.tmdb.org/t/p/original/owESmangyyDF79iQaSsYyqDqRD8.jpg</poster>
+		<fanart>https://image.tmdb.org/t/p/original/6vrsysl7C0pywOnjJvdyKBscFJK.jpg</fanart>
+		<fanart>https://image.tmdb.org/t/p/original/fiHqxysWI9BTIP0rjSL7WiNGOiK.jpg</fanart>
+		<fanart>https://image.tmdb.org/t/p/original/1tfq5LW3JXkkGHCvU4DUikOxVtZ.jpg</fanart>
+	</art>
+</tvshow>
