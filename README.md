@@ -24,17 +24,7 @@ With NFO Maker, you can ensure that all adult content, including hentai, gets pr
      ```bash
      pip install -r requirements.txt
      ```
-
-3. **Create a `.env` file**:
-   - Inside the repository folder, create a `.env` file and add the following line:
-     ```
-     TMDB_API_KEY=your_api_key_here
-     ```
-   - Replace `your_api_key_here` with your actual TMDb API key.
-
-4. **Download the NFO Maker script**:
-   - Download the **NFO Maker** script and place it in your Kodi directory.
-
+     
 ## How to Use:
 1. **Run the script** with:
    ```bash
