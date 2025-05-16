@@ -1,7 +1,6 @@
 import re
 from api import get_series_details, get_season_details, get_credits, get_images, get_censorship
 from nfo import generate_series_nfo, generate_season_nfo, generate_episode_nfo, generate_movie_nfo, save_nfo
-from download import download_movie_image, download_tvshow_image
 from nekopoi import searching
 
 invalid_chars = r'[\/:*?"<>|]'
