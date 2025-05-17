@@ -10,16 +10,24 @@
 	<imdbid>tt0383584</imdbid>
 
 	<studio>Private</studio>
+	<genre>Adult</genre>
 	<genre>History</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/nfeeHwJpyrHaqcx7zG4MYGhz1hw.jpg</thumb>
+
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/xH9D1HfNgGmTkIEzlUkuqtZ7kmb.jpg</thumb>
+	</fanart>
+
 	<set>
 		<id>1024130</id>
 		<name>Cleopatra Collection</name>
 		<overview>A group of archaeologists, members of a sect that worships ancient Egypt, working from a sample of her DNA, attempt to bring back to life the beautiful Cleopatra.</overview>
-		<posterLarge>https://image.tmdb.org/t/p/w342/gzMKfDBPb6cmkPmmbJNZWlJMPM3.jpg</posterLarge>
-		<posterThumb>https://image.tmdb.org/t/p/w92/gzMKfDBPb6cmkPmmbJNZWlJMPM3.jpg</posterThumb>
-		<backdropLarge>https://image.tmdb.org/t/p/w1280/7bCxEFGHczvoryGIi5eZOEp0xkY.jpg</backdropLarge>
-		<backdropThumb>https://image.tmdb.org/t/p/w300/7bCxEFGHczvoryGIi5eZOEp0xkY.jpg</backdropThumb>
+		<thumb aspect="poster">https://image.tmdb.org/t/p/original/gzMKfDBPb6cmkPmmbJNZWlJMPM3.jpg</thumb>
+		<fanart>
+			<thumb>https://image.tmdb.org/t/p/original/7bCxEFGHczvoryGIi5eZOEp0xkY.jpg</thumb></fanart>
 	</set>
+
 	<actor>
 		<name>Julia Taylor</name>
 		<role>Cleopatra</role>
@@ -86,12 +94,4 @@
 		<thumb>https://image.tmdb.org/t/p/w300/c6zMoJqjNhQjKR3vcnclVAFMsA.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/nfeeHwJpyrHaqcx7zG4MYGhz1hw.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/biti6vCOYrOtJ17nVl9NlduGlBE.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/lr9x5kO7Pr0jTKy010CIkWimrcD.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/7bCxEFGHczvoryGIi5eZOEp0xkY.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/bfCc325X5v2U9LRMDZZMSkI2cAo.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/iZFH0MsyWPgG0nmvijybZ4sLvqQ.jpg</fanart>
-	</art>
 </movie>

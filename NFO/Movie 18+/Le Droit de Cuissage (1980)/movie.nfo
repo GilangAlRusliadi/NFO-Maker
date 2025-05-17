@@ -3,7 +3,7 @@
 	<title>Cheating Couples</title>
 	<originaltitle>Cheating Couples</originaltitle>
 	<rating>7.7</rating>
-	<plot>Vincent thinks his wife, Geneviève is an awful bore, but she turns out to be an insatiate nymphomaniac. One evening they have a party at home, a few couples are invited. A woman seduces all men at the party. Geneviève obviously feels uncomfortable with the situation. What's more, Vincent requests her to have sex in front of the audience but she runs away.	In the end, however, she throws another party to fulfill his request.</plot>
+	<plot>Vincent thinks his wife, Geneviève is an awful bore, but she turns out to be an insatiate nymphomaniac. One evening they have a party at home, a few couples are invited. A woman seduces all men at the party. Geneviève obviously feels uncomfortable with the situation. What's more, Vincent requests her to have sex in front of the audience but she runs away.  In the end, however, she throws another party to fulfill his request.</plot>
 	<mpaa>NC-17</mpaa>
 	<premiered>1980-02-10</premiered>
 	<id>545952</id>
@@ -12,7 +12,15 @@
 	<studio>Alpha France</studio>
 	<studio>F.F.C.M.</studio>
 	<studio>Shangrila Productions</studio>
+	<genre>Adult</genre>
 	<genre>Romance</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/1bep2gsEMVgFRWAzFbQXSDpEbyp.jpg</thumb>
+
+	<fanart>
+		<thumb>https://gilbertclaus.pythonanywhere.com/TMDB/Movie/%20Cleopatra%20II:%20The%20Legend%20of%20Eros%20(2004)/fanart.jpg</thumb>
+	</fanart>
+
 	<actor>
 		<name>Richard Lemieuvre</name>
 		<role>Vincent</role>
@@ -36,7 +44,7 @@
 	<actor>
 		<name>Danièle Azzalini</name>
 		<role>Josee</role>
-		<thumb>https://image.tmdb.org/t/p/w300None</thumb>
+		<thumb>https://image.tmdb.org/t/p/w300/xyAATfVhmn8du9cT8uJPqquV9HI.jpg</thumb>
 	</actor>
 	<actor>
 		<name>Thierry de Brem</name>
@@ -84,10 +92,4 @@
 		<thumb>https://image.tmdb.org/t/p/w300/75kLBKdSRJD0Q8NcIWttmEpZPyD.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/1bep2gsEMVgFRWAzFbQXSDpEbyp.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/bBSjsDNQgdP5mbLBKiAJ7Bi8kp.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/poGv9dDRmuBoO3qa1tMzhhKotTD.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/pxlioTma2gkyMZi2cUQail1gKGO.jpg</fanart>
-	</art>
 </movie>

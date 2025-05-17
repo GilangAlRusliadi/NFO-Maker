@@ -3,7 +3,7 @@
 	<title>The Perverted Maid</title>
 	<originaltitle>The Perverted Maid</originaltitle>
 	<rating>8.0</rating>
-	<plot>A burglar is caught red-handed by a female homeowner (played by Samantha), who forces him to have sex with her at gunpoint. An orgy follows, after which the burglar decides on a career change.	He and his accomplice get jobs as butler/chauffeur and gardener. The house where they're employed is full of young women who exhaust the former burglar with their sexual appetites.	He eventually leaves, with all of the girls pregnant.</plot>
+	<plot>A burglar is caught red-handed by a female homeowner (played by Samantha), who forces him to have sex with her at gunpoint. An orgy follows, after which the burglar decides on a career change.  He and his accomplice get jobs as butler/chauffeur and gardener. The house where they're employed is full of young women who exhaust the former burglar with their sexual appetites.  He eventually leaves, with all of the girls pregnant.</plot>
 	<mpaa>NC-17</mpaa>
 	<premiered>1978-03-08</premiered>
 	<id>202840</id>
@@ -11,7 +11,15 @@
 
 	<studio>Alpha France</studio>
 	<studio>Les Films du Palais Royal</studio>
+	<genre>Adult</genre>
 	<genre>Comedy</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/odmetuiJr3DjGx4dWwU9wklO5Hw.jpg</thumb>
+
+	<fanart>
+		<thumb>https://gilbertclaus.pythonanywhere.com/TMDB/Movie/La%20Servante%20Perverse%20(1978)/fanart.jpg</thumb>
+	</fanart>
+
 	<actor>
 		<name>Lydie Begey</name>
 		<role>Colette, homeschooled teen girl</role>
@@ -60,11 +68,7 @@
 	<actor>
 		<name>Richard Bigotini</name>
 		<role>Manu</role>
-		<thumb>https://image.tmdb.org/t/p/w300None</thumb>
+		<thumb>https://image.tmdb.org/t/p/w300/keYfUJ9NzSNnrqs8Fpz51dpsNz7.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/odmetuiJr3DjGx4dWwU9wklO5Hw.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/hNPcqxhF8xS0V9mT69CS6pLC2id.jpg</poster>
-	</art>
 </movie>
