@@ -18,10 +18,11 @@
 	<genre>Oral</genre>
 	<genre>Paizuri</genre>
 	<genre>Schoolgirl</genre>
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/khWG57AiwYY5g2BpmB51eI0djFx.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/umD2skcf7pN7NYDSx5CGfS5DjSQ.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/hFXxIg8b1aTWpNZg5wRN8LK0B3R.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/3jjoz7pRAB3Xdr7aPGbPST8MQCv.jpg</fanart>
-	</art>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/umD2skcf7pN7NYDSx5CGfS5DjSQ.jpg</thumb>
+
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/3jjoz7pRAB3Xdr7aPGbPST8MQCv.jpg</thumb>
+	</fanart>
+
 </tvshow>

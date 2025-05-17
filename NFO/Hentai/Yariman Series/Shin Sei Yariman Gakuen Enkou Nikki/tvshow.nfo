@@ -18,9 +18,11 @@ Saiki Yasuo is a 45 years old office worker. After 20 years of marriage, his wif
 	<genre>Oral</genre>
 	<genre>Paizuri</genre>
 	<genre>Schoolgirl</genre>
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/6pvAR7RFmknHWSQm9v9TJMeMzv2.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/8IcRpwtMv7kDtv4tX06ndk3DuGO.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/rcHV5YQDW2ON92MTBmrcVJjihPw.jpg</fanart>
-	</art>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/6pvAR7RFmknHWSQm9v9TJMeMzv2.jpg</thumb>
+
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/rcHV5YQDW2ON92MTBmrcVJjihPw.jpg</thumb>
+	</fanart>
+
 </tvshow>

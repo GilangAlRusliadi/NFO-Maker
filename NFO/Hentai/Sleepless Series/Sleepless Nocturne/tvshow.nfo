@@ -18,6 +18,13 @@
 	<genre>Netorare</genre>
 	<genre>Oral</genre>
 	<genre>Virgin</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/hXBegEK19LK31kRILYAqV0u7qCy.jpg</thumb>
+
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/4ZorQByVOPfgm8bW88n3WMYiYhP.jpg</thumb>
+	</fanart>
+
 	<actor>
 		<name>Rin Mitaka</name>
 		<role></role>
@@ -28,11 +35,4 @@
 		<role>Aira Katagiri (voice)</role>
 		<thumb>https://image.tmdb.org/t/p/w300/3In2CeRmQNfWANOvzVnmKG752J.jpg</thumb>
 	</actor>
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/f32oB4NIGysr02LDZMLZwiURJLO.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/hXBegEK19LK31kRILYAqV0u7qCy.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/zRFNw8r1jFfmfsZcS4syqChNsDw.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/kT4Bb2Ikzt7Kn06ax2YjZMEX7i1.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/9bdEoY56B51VnMqGCYMxnn9I3xS.jpg</fanart>
-	</art>
 </tvshow>

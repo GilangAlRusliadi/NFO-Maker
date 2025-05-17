@@ -19,7 +19,7 @@
 	<genre>Paizuri</genre>
 	<genre>Schoolgirl</genre>
 
-	<thumb aspect="poster">https://image.tmdb.org/t/p/original/6SprPSD2wUpejBlbQERV8xNES2n.jpg</thumb>
+	<thumb aspect="poster">https://gilbertclaus.pythonanywhere.com/TMDB/TV/Yariman%20Series/poster.jpg</thumb>
 
 	<fanart>
 		<thumb>https://image.tmdb.org/t/p/original/4QcOPem7xIDc5XcompdPuAAiwyz.jpg</thumb>
@@ -29,10 +29,10 @@
 	<thumb aspect="poster" type="season" season="1">https://image.tmdb.org/t/p/original/umD2skcf7pN7NYDSx5CGfS5DjSQ.jpg</thumb>
 	<namedseason number="2">Shin Sei Yariman Gakuen Enkou Nikki</namedseason>
 	<thumb aspect="poster" type="season" season="2">https://image.tmdb.org/t/p/original/8IcRpwtMv7kDtv4tX06ndk3DuGO.jpg</thumb>
-	<namedseason number="3">Sei Yariman Sisters Pakopako Nikki</namedseason>
-	<thumb aspect="poster" type="season" season="3">https://image.tmdb.org/t/p/original/6SprPSD2wUpejBlbQERV8xNES2n.jpg</thumb>
-	<namedseason number="4">Okusama wa Moto Yariman</namedseason>
-	<thumb aspect="poster" type="season" season="4">https://image.tmdb.org/t/p/original/sixKN1hpH1GPxFaoYRL6ki8Lj0G.jpg</thumb>
+	<namedseason number="3">Okusama wa Moto Yariman</namedseason>
+	<thumb aspect="poster" type="season" season="3">https://image.tmdb.org/t/p/original/sixKN1hpH1GPxFaoYRL6ki8Lj0G.jpg</thumb>
+	<namedseason number="4">Sei Yariman Sisters Pakopako Nikki</namedseason>
+	<thumb aspect="poster" type="season" season="4">https://image.tmdb.org/t/p/original/6SprPSD2wUpejBlbQERV8xNES2n.jpg</thumb>
 
 	<actor>
 		<name>Maki Tomonaga</name>
