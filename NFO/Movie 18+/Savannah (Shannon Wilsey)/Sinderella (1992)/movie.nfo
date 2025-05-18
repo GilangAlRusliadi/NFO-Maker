@@ -13,6 +13,13 @@
 	<genre>Adult</genre>
 	<genre>Comedy</genre>
 	<genre>Drama</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/pqM1PN2jdGYbkbwuwCc7OnuGauO.jpg</thumb>
+	<thumb aspect="clearlogo"></thumb>
+	<fanart>
+		<thumb></thumb>
+	</fanart>
+
 	<actor>
 		<name>Savannah</name>
 		<role>Sinderella</role>
@@ -74,7 +81,4 @@
 		<thumb>https://image.tmdb.org/t/p/w300/ok1E5yuwTYLkOGYv4gcTJLr6afI.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/pqM1PN2jdGYbkbwuwCc7OnuGauO.jpg</poster>
-	</art>
 </movie>

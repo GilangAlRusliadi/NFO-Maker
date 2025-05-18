@@ -23,7 +23,7 @@
 	<genre>Yuri</genre>
 
 	<thumb aspect="poster">https://image.tmdb.org/t/p/original/gIpY01Sr6eUxfH1wmxPCk5vW4Oc.jpg</thumb>
-
+	<thumb aspect="clearlogo"></thumb>
 	<fanart>
 		<thumb>https://image.tmdb.org/t/p/original/iwoC4ZvzI1yCkfvn1vLjLlGqPGX.jpg</thumb>
 	</fanart>

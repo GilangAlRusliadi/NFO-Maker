@@ -19,7 +19,7 @@
 	<genre>Romance</genre>
 
 	<thumb aspect="poster">https://image.tmdb.org/t/p/original/7tniCKf7Unbe5XDTmvgMmXmDk5i.jpg</thumb>
-
+	<thumb aspect="clearlogo"></thumb>
 	<fanart>
 		<thumb>https://image.tmdb.org/t/p/original/oSa80ExEnl640UuIVbjTY6YklUQ.jpg</thumb>
 	</fanart>

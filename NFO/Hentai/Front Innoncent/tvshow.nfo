@@ -19,7 +19,7 @@
 	<genre>Yuri</genre>
 
 	<thumb aspect="poster">https://gilbertclaus.pythonanywhere.com/TMDB/TV/Front%20Innoncent/poster.jpg</thumb>
-
+	<thumb aspect="clearlogo"></thumb>
 	<fanart>
 		<thumb>https://gilbertclaus.pythonanywhere.com/TMDB/TV/Front%20Innoncent/fanart.jpg</thumb>
 	</fanart>

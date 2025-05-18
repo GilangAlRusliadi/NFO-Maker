@@ -19,7 +19,7 @@
 	<genre>Swimsuit</genre>
 
 	<thumb aspect="poster">https://image.tmdb.org/t/p/original/vj9PxIhTRsEu1gha0iMzNLNKYhW.jpg</thumb>
-
+	<thumb aspect="clearlogo"></thumb>
 	<fanart>
 		<thumb>https://image.tmdb.org/t/p/original/A4qSvFoNOTm1Iych5bMCFmZxxd7.jpg</thumb>
 	</fanart>

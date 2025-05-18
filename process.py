@@ -17,7 +17,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
 
     # Ambil data terkait lainnya (credits, images)
     actors = get_credits(tv_id, "tv")
-    poster, fanart = get_images(tv_id, "tv")
+    images = get_images(tv_id, "tv")
 
     # Cek apakah ada collection
     collection = None
@@ -128,7 +128,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     series_nfo_content = generate_series_nfo(
         series_title, rating, description, premiered,
         tmdbid, imdbid, sorted(studios), sorted(genres),
-        actors, poster, fanart, censorship, collection, seasons_poster
+        actors, images, censorship, collection, seasons_poster
     )
     
     save_nfo(title, series_nfo_content, 'tvshow.nfo', "tv")
@@ -145,7 +145,7 @@ def run_movie(movie_id, title=None, koleksi=None):
 
     # Ambil data terkait lainnya (credits, images)
     actors = get_credits(movie_id, "movie")
-    posters, fanarts = get_images(movie_id, "movie")
+    images = get_images(movie_id, "movie")
 
     # Cek apakah ada collection
     collection = None
@@ -189,7 +189,7 @@ def run_movie(movie_id, title=None, koleksi=None):
     movie_nfo_content = generate_movie_nfo(
         movies_title, rating, description, premiered,
         tmdbid, imdbid, sorted(studios), sorted(genres),
-        actors, posters, fanarts, censorship, collection
+        actors, images, censorship, collection
     )
 
     if not title:

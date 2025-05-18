@@ -23,7 +23,7 @@
 	<genre>Stocking</genre>
 
 	<thumb aspect="poster">https://image.tmdb.org/t/p/original/bvXPaDrnVY6WhywIpzrTCIxC9m0.jpg</thumb>
-
+	<thumb aspect="clearlogo"></thumb>
 	<fanart>
 		<thumb>https://image.tmdb.org/t/p/original/2Q3APDVzmzBuKVP4pVv3DnoEjw2.jpg</thumb>
 	</fanart>

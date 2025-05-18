@@ -13,6 +13,13 @@
 	<genre>Adult</genre>
 	<genre>Drama</genre>
 	<genre>Fantasy</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/7meNB5HHQV9oyzupdYBzgnC7r8f.jpg</thumb>
+	<thumb aspect="clearlogo"></thumb>
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/1ov288oOfUIAxNpyffi5pLGoE8v.jpg</thumb>
+	</fanart>
+
 	<actor>
 		<name>Savannah</name>
 		<role>Angel</role>
@@ -79,9 +86,4 @@
 		<thumb>https://image.tmdb.org/t/p/w300/36nbITdk1B6yAxRSmaiKfMOofrO.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/7meNB5HHQV9oyzupdYBzgnC7r8f.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/webIXnwo1BCajZcAXu8ZJEDK8FS.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/1ov288oOfUIAxNpyffi5pLGoE8v.jpg</fanart>
-	</art>
 </movie>

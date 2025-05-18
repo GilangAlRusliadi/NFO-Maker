@@ -22,7 +22,7 @@
 	<genre>Virgin</genre>
 
 	<thumb aspect="poster">https://image.tmdb.org/t/p/original/6sCqOlOC0lEb6Q7wXc0XOIji9kS.jpg</thumb>
-
+	<thumb aspect="clearlogo"></thumb>
 	<fanart>
 		<thumb>https://gilbertclaus.pythonanywhere.com/TMDB/TV/Jutaijima%20Series/fanart.jpg</thumb>
 	</fanart>

@@ -11,6 +11,13 @@
 
 	<studio>VCA Pictures</studio>
 	<genre>Adult</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/axl0husliLPRrkgF52ONYQKpPec.jpg</thumb>
+	<thumb aspect="clearlogo"></thumb>
+	<fanart>
+		<thumb>https://gilbertclaus.pythonanywhere.com/TMDB/Movie/Deep%20Inside%20Savannah%20%281993%29/fanart.jpg</thumb>
+	</fanart>
+
 	<actor>
 		<name>Savannah</name>
 		<role>(archive footage)</role>
@@ -67,7 +74,4 @@
 		<thumb>https://image.tmdb.org/t/p/w300/yihgjMmPTspDZ9xYsng0JITOgWO.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/axl0husliLPRrkgF52ONYQKpPec.jpg</poster>
-	</art>
 </movie>

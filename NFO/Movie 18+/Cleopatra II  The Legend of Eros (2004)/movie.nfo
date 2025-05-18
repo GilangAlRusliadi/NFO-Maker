@@ -11,14 +11,20 @@
 
 	<studio>Private</studio>
 	<genre>Adult</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/gk7Y1lL7GjVY9oVDi1IeAY8iyTb.jpg</thumb>
+	<thumb aspect="clearlogo">https://image.tmdb.org/t/p/original/st7Lxe7AXGjey4AerMTsXnGZtW2.png</thumb>
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/4TgSwuRWo4feLF4HfazIx95O17r.jpg</thumb>
+	</fanart>
+
 	<set>
 		<id>1024130</id>
 		<name>Cleopatra Collection</name>
 		<overview>The Legend of Eros: A sect that worships ancient Egypt is attempting to bring Cleopatra back to life by cloning her. Once they've achieved this, the new Cleopatra will find herself immersed in two different worlds - the present and the past - unleashing her sexually charged energy in the current century and reviving her sizzling past.</overview>
-		<posterLarge>https://image.tmdb.org/t/p/w342/gzMKfDBPb6cmkPmmbJNZWlJMPM3.jpg</posterLarge>
-		<posterThumb>https://image.tmdb.org/t/p/w92/gzMKfDBPb6cmkPmmbJNZWlJMPM3.jpg</posterThumb>
-		<backdropLarge>https://image.tmdb.org/t/p/w1280/7bCxEFGHczvoryGIi5eZOEp0xkY.jpg</backdropLarge>
-		<backdropThumb>https://image.tmdb.org/t/p/w300/7bCxEFGHczvoryGIi5eZOEp0xkY.jpg</backdropThumb>
+		<thumb aspect="poster">https://image.tmdb.org/t/p/original/gzMKfDBPb6cmkPmmbJNZWlJMPM3.jpg</thumb>
+		<fanart>
+			<thumb>https://image.tmdb.org/t/p/original/7bCxEFGHczvoryGIi5eZOEp0xkY.jpg</thumb></fanart>
 	</set>
 
 	<actor>
@@ -77,11 +83,4 @@
 		<thumb>https://image.tmdb.org/t/p/w300/2k2DdAAJEJ8tf88fPiFlSRgmmWh.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/gk7Y1lL7GjVY9oVDi1IeAY8iyTb.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/yGbNWfF8TCHQQGJQd7mkDnjIBFt.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/5B6beBegfgLOFS5nsEEhmfbgxwW.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/iukFK3ExUsLlyNSCOHzq8xPpwKP.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/tjDEzyga4hRIhXeqyBvTrZapd8C.jpg</fanart>
-	</art>
 </movie>

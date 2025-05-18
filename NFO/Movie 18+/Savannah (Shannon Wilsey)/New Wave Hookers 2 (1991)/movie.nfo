@@ -13,6 +13,13 @@
 	<studio>VCA Pictures</studio>
 	<genre>Adult</genre>
 	<genre>Comedy</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/cNYeyJ8ZuFDzl3IsmxjU3fxXih2.jpg</thumb>
+	<thumb aspect="clearlogo"></thumb>
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/nj5jAPf5zMZ3zcpgy42XSYxHIPJ.jpg</thumb>
+	</fanart>
+
 	<actor>
 		<name>Savannah</name>
 		<role>Hooker with Lamp Guy</role>
@@ -124,10 +131,4 @@
 		<thumb>https://image.tmdb.org/t/p/w300/yaipy4KyqDc5wGhApwiZ0llscHA.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/cNYeyJ8ZuFDzl3IsmxjU3fxXih2.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/lJzqQyf26csFXgxfa4CLiPbfo6F.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/nj5jAPf5zMZ3zcpgy42XSYxHIPJ.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/gcEE8lHgWrxta9MtDPSIvr1bfwu.jpg</fanart>
-	</art>
 </movie>

@@ -19,7 +19,7 @@
 	<genre>Virgin</genre>
 
 	<thumb aspect="poster">https://image.tmdb.org/t/p/original/3DWkL7WQoyYkCyjC4wZI7ElHhE6.jpg</thumb>
-
+	<thumb aspect="clearlogo"></thumb>
 	<fanart>
 		<thumb>https://image.tmdb.org/t/p/original/hTETbUJBM5Tf0wC3W8QdrVcWUIw.jpg</thumb>
 	</fanart>

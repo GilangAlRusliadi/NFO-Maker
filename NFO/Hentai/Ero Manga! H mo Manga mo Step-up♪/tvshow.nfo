@@ -24,7 +24,7 @@
 	<genre>Vanilla</genre>
 
 	<thumb aspect="poster">https://image.tmdb.org/t/p/original/4fwtEt1Fxc357Kgr93fbJprVv8J.jpg</thumb>
-
+	<thumb aspect="clearlogo"></thumb>
 	<fanart>
 		<thumb>https://image.tmdb.org/t/p/original/la5GBrjYf48uTZe4WvtmftKd57N.jpg</thumb>
 	</fanart>

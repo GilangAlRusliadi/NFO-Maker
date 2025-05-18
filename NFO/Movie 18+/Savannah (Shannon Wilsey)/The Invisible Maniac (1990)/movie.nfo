@@ -14,6 +14,13 @@
 	<genre>Comedy</genre>
 	<genre>Horror</genre>
 	<genre>Science Fiction</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/yfn9BldjwPnAtjcKyLT0JgnMHKP.jpg</thumb>
+	<thumb aspect="clearlogo">https://image.tmdb.org/t/p/original/fgxtBPLgxpMrXKol35M95TGrvqI.png</thumb>
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/8XgAmw31UtUIDa0ec33Sj9yaSxi.jpg</thumb>
+	</fanart>
+
 	<actor>
 		<name>Peter Noel Duhamel</name>
 		<role>Kevin Dornwinkle</role>
@@ -165,12 +172,4 @@
 		<thumb>https://image.tmdb.org/t/p/w300/jo3dhLvZcpNHDC3CzB2f2XuSG3h.jpg</thumb>
 	</actor>
 
-	<art>
-		<poster>https://image.tmdb.org/t/p/original/yfn9BldjwPnAtjcKyLT0JgnMHKP.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/vl1TIs9CUFbHlL8QdD6BvRX2uPN.jpg</poster>
-		<poster>https://image.tmdb.org/t/p/original/bvo3ygTf1raPbgQZYYmBt9k6SZU.jpg</poster>
-		<fanart>https://image.tmdb.org/t/p/original/8XgAmw31UtUIDa0ec33Sj9yaSxi.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/lCGdVYveDxVTFG7ovvR63sy7hnq.jpg</fanart>
-		<fanart>https://image.tmdb.org/t/p/original/zk2IQQOUQ78UcQJ15aGZexfG04f.jpg</fanart>
-	</art>
 </movie>

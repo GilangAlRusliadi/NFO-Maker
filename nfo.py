@@ -6,7 +6,7 @@ def pisah_kecil_besar(teks):
     hasil = re.sub(r'([a-z])([A-Z])', r'\1 \2', teks)
     return hasil
 
-def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, poster, fanart, censorship, collection=None):
+def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, genres, actors, images, censorship, collection=None):
     # genre_str = ' / '.join(genres) if genres else ''
 
     nfo = f"""<?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -29,11 +29,18 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
     for genre in genres:
         nfo += f"\n\t<genre>{pisah_kecil_besar(genre)}</genre>"
 
-    # Posters
+    poster = images[0]
+    fanart = images[1]
+    logo = images[2]
+
+    # Poster
     nfo += f'\n\n\t<thumb aspect="poster">{poster}</thumb>'
 
-    # Fanarts
-    nfo += "\n\n\t<fanart>"
+    # Logo
+    nfo += f'\n\t<thumb aspect="clearlogo">{logo}</thumb>'
+
+    # Fanart
+    nfo += "\n\t<fanart>"
     nfo += f'\n\t\t<thumb>{fanart}</thumb>'  
     nfo += "\n\t</fanart>\n"
 
@@ -74,7 +81,7 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
             
     return nfo
 
-def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studios, genres, actors, poster, fanart, censorship, collection=None, seasons_poster = []):
+def generate_series_nfo(series_title, rating, description, premiered, tmdbid, imdbid, studios, genres, actors, images, censorship, collection=None, seasons_poster = []):
     nfo = f"""<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
 <tvshow>
 \t<title>{series_title}</title>
@@ -94,11 +101,18 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
     for genre in genres:
         nfo += f"\n\t<genre>{pisah_kecil_besar(genre)}</genre>"
 
-    # Posters
+    poster = images[0]
+    fanart = images[1]
+    logo = images[2]
+
+    # Poster
     nfo += f'\n\n\t<thumb aspect="poster">{poster}</thumb>'
 
-    # Fanarts
-    nfo += "\n\n\t<fanart>"
+    # Logo
+    nfo += f'\n\t<thumb aspect="clearlogo">{logo}</thumb>'
+
+    # Fanart
+    nfo += "\n\t<fanart>"
     nfo += f'\n\t\t<thumb>{fanart}</thumb>'  
     nfo += "\n\t</fanart>\n"
 

@@ -99,6 +99,7 @@ def get_images(id, tipe):
         images = response.json()
         poster = ""
         fanart = ""
+        logo = ""
 
         if 'posters' in images and images['posters']:
             poster = f"https://image.tmdb.org/t/p/original{images['posters'][0]['file_path']}"
@@ -106,10 +107,13 @@ def get_images(id, tipe):
         if 'backdrops' in images and images['backdrops']:
             fanart = f"https://image.tmdb.org/t/p/original{images['backdrops'][0]['file_path']}"
 
-        return poster, fanart
+        if 'logos' in images and images['logos']:
+            logo = f"https://image.tmdb.org/t/p/original{images['logos'][0]['file_path']}"
+
+        return [poster, fanart, logo]
     else:
         print(f"Gagal mengambil images untuk ID {id}")
-        return "", ""
+        return ["", "", ""]    
 
 def search_tmdb(query, tipe):
     params["query"] = query
