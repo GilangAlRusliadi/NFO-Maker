@@ -6,8 +6,8 @@
 	<plot>Vivid Film and Paul Thomas present the conclusion to the adult movie-making experience of 1992, Cinderella, with the stunning second act, The Stepsister. Raquel Darien and Savannah return to the scene of the fable, surrounded by a castle filled with adult's greatest luminaries. You'll marvel at the faithful period re-creations. The carriages drawn by horse, amidst sprawling gothic vistas. As Savannah and Raquel spar for sexiest, princes' battle foes while wenches stand by waiting their lustful turn. Return with us to the castle of ill repute, with Raquel as The Stepsister.</plot>
 	<mpaa>NC-17</mpaa>
 	<premiered>1992-12-06</premiered>
-	<id>762995</id>
-	<imdbid>tt0144610</imdbid>
+	<uniqueid type="tmdb" default="true">762995</uniqueid>
+	<uniqueid type="imdb" default="false">tt0144610</uniqueid>
 
 	<studio>Vivid Entertainment</studio>
 	<genre>Adult</genre>

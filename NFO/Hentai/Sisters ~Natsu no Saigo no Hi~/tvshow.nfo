@@ -6,8 +6,8 @@
 	<plot>Far away from the hustle and bustle of the city lies a small rural town in a mountainous region. A young man meets a pair of beautiful sisters there along with their mother, and lives together with them. Their days together are full of happiness, but he didn’t know that there is a hidden secret.</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2011-01-25</premiered>
-	<id>218010</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">218010</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Jellyfish</studio>
 	<genre>Big Oppai</genre>
 	<genre>Blowjob</genre>

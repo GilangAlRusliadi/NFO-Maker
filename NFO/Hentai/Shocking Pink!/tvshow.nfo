@@ -6,8 +6,8 @@
 	<plot>A boy named similar to Zhuge Liang, from Romance of Three Kingdoms meets a girl who believe that she’s a desendant of Liu Bei. She wants him to become her strategist.</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2011-06-24</premiered>
-	<id>85254</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">85254</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Mary Jane</studio>
 	<studio>Studio Eromatick</studio>
 	<genre>Blowjob</genre>

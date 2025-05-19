@@ -14,8 +14,8 @@ Shimizu demands that Arahama stops having casual sex and marries someone. but th
 Arahama then visits all of them individually to try to withdraw his proposal</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2012-11-30</premiered>
-	<id>97777</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">97777</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Collaboration Works</studio>
 	<genre>Ahegao</genre>
 	<genre>BDSM</genre>

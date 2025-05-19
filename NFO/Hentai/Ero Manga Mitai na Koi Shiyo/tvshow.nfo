@@ -6,8 +6,8 @@
 	<plot>Fappable short stories involving childhood friends, tsundere crushes, and sisters. Based on the manga by Yasui Riosuke</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2008-05-30</premiered>
-	<id>85137</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">85137</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Pink Pineapple</studio>
 	<genre>Big Oppai</genre>
 	<genre>Blowjob</genre>

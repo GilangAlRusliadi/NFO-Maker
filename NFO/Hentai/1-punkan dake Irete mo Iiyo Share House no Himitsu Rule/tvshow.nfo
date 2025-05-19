@@ -6,8 +6,8 @@
 	<plot>After entering university, Ryota moves into a share house where he meets two stunningly beautiful sharemates, Momoka and Kanade. As the three of them begin to cohabitate together, they agree on one "secret rule." "If it's just for a minute, you can touch whatever you want." Thus begins Ryota's new life at the share house, where sweet temptation lies behind every door...!</plot>
 	<mpaa></mpaa>
 	<premiered>2025-01-06</premiered>
-	<id>279120</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">279120</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Suiseisha</studio>
 	<studio>スタジオレオ</studio>
 	<genre>Animation</genre>

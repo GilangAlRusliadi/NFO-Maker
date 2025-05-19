@@ -6,8 +6,8 @@
 	<plot></plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2023-10-06</premiered>
-	<id>230410</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">230410</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Antechinus</studio>
 	<genre>Big Oppai</genre>
 	<genre>Blowjob</genre>

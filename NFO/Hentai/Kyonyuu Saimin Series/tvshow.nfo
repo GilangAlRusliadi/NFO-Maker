@@ -6,8 +6,8 @@
 	<plot>Kyonyuu Saimin Series</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2017-12-01</premiered>
-	<id>77633</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">77633</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Bunny Walker</studio>
 	<studio>T-Rex</studio>
 	<genre>Ahegao</genre>

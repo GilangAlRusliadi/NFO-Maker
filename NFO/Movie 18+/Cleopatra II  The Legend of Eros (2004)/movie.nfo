@@ -6,8 +6,8 @@
 	<plot>The Legend of Eros: A sect that worships ancient Egypt is attempting to bring Cleopatra back to life by cloning her. Once they've achieved this, the new Cleopatra will find herself immersed in two different worlds - the present and the past - unleashing her sexually charged energy in the current century and reviving her sizzling past.</plot>
 	<mpaa>NC-17</mpaa>
 	<premiered>2004-03-01</premiered>
-	<id>39638</id>
-	<imdbid>tt0403427</imdbid>
+	<uniqueid type="tmdb" default="true">39638</uniqueid>
+	<uniqueid type="imdb" default="false">tt0403427</uniqueid>
 
 	<studio>Private</studio>
 	<genre>Adult</genre>
@@ -19,7 +19,7 @@
 	</fanart>
 
 	<set>
-		<id>1024130</id>
+		<uniqueid type="tmdb" default="true">1024130</uniqueid>
 		<name>Cleopatra Collection</name>
 		<overview>The Legend of Eros: A sect that worships ancient Egypt is attempting to bring Cleopatra back to life by cloning her. Once they've achieved this, the new Cleopatra will find herself immersed in two different worlds - the present and the past - unleashing her sexually charged energy in the current century and reviving her sizzling past.</overview>
 		<thumb aspect="poster">https://image.tmdb.org/t/p/original/gzMKfDBPb6cmkPmmbJNZWlJMPM3.jpg</thumb>

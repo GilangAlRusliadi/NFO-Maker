@@ -8,8 +8,8 @@
 (These OVA's are based on the erotic manga by Goban.)</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2014-05-30</premiered>
-	<id>80797</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">80797</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Mary Jane</studio>
 	<genre>Big Oppai</genre>
 	<genre>Incest</genre>

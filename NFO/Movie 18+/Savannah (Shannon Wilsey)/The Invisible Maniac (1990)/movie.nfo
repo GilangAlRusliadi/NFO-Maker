@@ -6,8 +6,8 @@
 	<plot>An invisible scientist escapes from an asylum and teaches high-school physics to nubile teens.</plot>
 	<mpaa>R</mpaa>
 	<premiered>1990-07-13</premiered>
-	<id>28340</id>
-	<imdbid>tt0099856</imdbid>
+	<uniqueid type="tmdb" default="true">28340</uniqueid>
+	<uniqueid type="imdb" default="false">tt0099856</uniqueid>
 
 	<studio>Republic Pictures (II)</studio>
 	<studio>Smoking Gun Pictures</studio>

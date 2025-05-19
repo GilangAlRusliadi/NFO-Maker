@@ -6,8 +6,8 @@
 	<plot>A middle-aged office worker is offered 5 premium cards to the school festival. The cards were a bit expensive, but the girl offering them was cute and rather slutty...</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2021-04-02</premiered>
-	<id>122225</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">122225</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Bunny Walker</studio>
 	<studio>T-Rex</studio>
 	<genre>Big Oppai</genre>

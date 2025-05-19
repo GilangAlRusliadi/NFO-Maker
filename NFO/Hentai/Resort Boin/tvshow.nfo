@@ -6,8 +6,8 @@
 	<plot></plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2007-12-25</premiered>
-	<id>273224</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">273224</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>MS Pictures</studio>
 	<studio>Milky Animation Label</studio>
 	<genre>Anal</genre>

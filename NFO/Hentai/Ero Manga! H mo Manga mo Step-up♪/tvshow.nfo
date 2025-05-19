@@ -8,8 +8,8 @@
 (These OVA's are based on the erotic game by Clock Up and shows branching storylines)</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2015-12-25</premiered>
-	<id>94552</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">94552</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Collaboration Works</studio>
 	<genre>Ahegao</genre>
 	<genre>Anal</genre>

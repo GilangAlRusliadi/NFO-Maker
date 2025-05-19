@@ -8,8 +8,8 @@
 They are classic stories everyone knows, but what if they were distorted according to the reader's desires?</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2023-01-27</premiered>
-	<id>218302</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">218302</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Majin</studio>
 	<genre>Ahegao</genre>
 	<genre>Big Oppai</genre>

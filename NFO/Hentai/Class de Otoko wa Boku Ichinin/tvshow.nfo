@@ -6,8 +6,8 @@
 	<plot></plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2023-03-03</premiered>
-	<id>215428</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">215428</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Bunny Walker</studio>
 	<studio>T-Rex</studio>
 	<genre>Big Oppai</genre>

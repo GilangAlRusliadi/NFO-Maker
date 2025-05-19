@@ -6,8 +6,8 @@
 	<plot>An adaptation of the game of the same name.</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2017-02-24</premiered>
-	<id>77635</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">77635</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Bunny Walker</studio>
 	<genre>Big Oppai</genre>
 	<genre>Creampie</genre>

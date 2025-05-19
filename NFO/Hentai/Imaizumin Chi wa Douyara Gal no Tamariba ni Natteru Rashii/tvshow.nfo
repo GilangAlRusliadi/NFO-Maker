@@ -6,8 +6,8 @@
 	<plot>Imaizumi's parents thought he was not manly enough and wanted him to become more independent, so they kicked him out once school started. But for some reason, the three most popular girls from his class, Hamazaki-san, Sasaki-san, and Kurumizaka-san, have decided to hang out at his place.</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2021-08-06</premiered>
-	<id>130802</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">130802</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Bunny Walker</studio>
 	<studio>T-Rex</studio>
 	<genre>Big Oppai</genre>

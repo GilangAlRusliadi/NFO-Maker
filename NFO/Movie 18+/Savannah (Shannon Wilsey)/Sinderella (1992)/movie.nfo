@@ -6,8 +6,8 @@
 	<plot>Vivid Film and Paul Thomas present the adult movie-making experience of 1992... Cinderalla... starring Savannah and Raquel Darian and featuring a castle filled with adult's greatest luminaries.</plot>
 	<mpaa>NC-17</mpaa>
 	<premiered>1992-08-08</premiered>
-	<id>346816</id>
-	<imdbid>tt0144609</imdbid>
+	<uniqueid type="tmdb" default="true">346816</uniqueid>
+	<uniqueid type="imdb" default="false">tt0144609</uniqueid>
 
 	<studio>Vivid Entertainment</studio>
 	<genre>Adult</genre>

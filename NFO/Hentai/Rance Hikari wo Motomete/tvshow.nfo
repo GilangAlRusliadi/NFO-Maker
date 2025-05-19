@@ -8,8 +8,8 @@
 Rance follows the namesake hero who is tasked with finding and protecting the daughter of a guild owner; however, the case turns out to be much deeper than it initially appears to be.</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2014-12-26</premiered>
-	<id>79426</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">79426</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Pink Pineapple</studio>
 	<genre>Ahegao</genre>
 	<genre>Big Oppai</genre>

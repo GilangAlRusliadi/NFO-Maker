@@ -6,8 +6,8 @@
 	<plot>Come to the greatest sexual theme park in the world, Mizuryu Land!</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2017-08-25</premiered>
-	<id>74254</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">74254</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Bunny Walker</studio>
 	<studio>T-Rex</studio>
 	<genre>Ahegao</genre>

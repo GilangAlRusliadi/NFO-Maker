@@ -6,8 +6,8 @@
 	<plot>Fey, the beautiful and innocent daughter of a wealthy land owner, made friends with her maid Sophia and her friend John. But when she was sent to a school she left John in the care of Sophia, now she's finally back, and it seems to be the end of her innocent days.</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2005-03-10</premiered>
-	<id>246419</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">246419</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Arms</studio>
 	<studio>Moonrock</studio>
 	<genre>Big Oppai</genre>

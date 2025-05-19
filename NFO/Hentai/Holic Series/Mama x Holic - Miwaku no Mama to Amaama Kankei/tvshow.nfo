@@ -6,8 +6,8 @@
 	<plot></plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2021-11-26</premiered>
-	<id>139577</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">139577</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Pink Pineapple</studio>
 	<genre>Big Oppai</genre>
 	<genre>Blowjob</genre>

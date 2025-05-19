@@ -6,8 +6,8 @@
 	<plot>He has always had the hots for his big sister.. but unfortunately for him, she only has eyes for HIS big brother.</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2022-02-25</premiered>
-	<id>158203</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">158203</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Pink Pineapple</studio>
 	<genre>Ahegao</genre>
 	<genre>Big Oppai</genre>

@@ -10,8 +10,8 @@
 Who's speaking? Is it the girl in the story or the woman who's reading it? The truth is that something even more erotic than the book's story awaits!</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2017-12-01</premiered>
-	<id>77625</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">77625</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>BOOTLEG</studio>
 	<genre>Ahegao</genre>
 	<genre>Big Oppai</genre>

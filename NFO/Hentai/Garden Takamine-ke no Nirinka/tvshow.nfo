@@ -6,8 +6,8 @@
 	<plot>With their Mom away on a business trip, the sisters make their move...</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2022-02-25</premiered>
-	<id>282154</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">282154</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Pink Pineapple</studio>
 	<genre>Big Oppai</genre>
 	<genre>Blowjob</genre>

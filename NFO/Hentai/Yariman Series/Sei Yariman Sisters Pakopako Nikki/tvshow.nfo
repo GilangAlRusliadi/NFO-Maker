@@ -18,8 +18,8 @@ Kenta quickly learns that his uncle got transferred to another city so it's only
 Saki and Maki waste no time to approach him very aggressivly.</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2015-03-27</premiered>
-	<id>97674</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">97674</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Pink Pineapple</studio>
 	<genre>Ahegao</genre>
 	<genre>Big Oppai</genre>

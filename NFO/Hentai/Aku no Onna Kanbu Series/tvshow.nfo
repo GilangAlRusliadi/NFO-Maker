@@ -10,8 +10,8 @@ One day, when he has another battle against Silverstar, his bosses suddenly trap
 He soon decides to take revenge on his bosses...</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2011-11-18</premiered>
-	<id>83250</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">83250</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Bunny Walker</studio>
 	<studio>Cotton Doll</studio>
 	<studio>T-REX</studio>

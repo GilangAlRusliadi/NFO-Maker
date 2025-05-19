@@ -6,8 +6,8 @@
 	<plot>One day, a man who considers himself an “expert” receives a letter. It contains several cards showing the breasts of various women. Suddenly, a girl called Nil appears and explains to the man that he has been chosen to play a game in which the aim is to guess as many breasts as possible. Now, he has to find the ladies whose rack is shown on the cards…</plot>
 	<mpaa>TV-MA</mpaa>
 	<premiered>2010-03-19</premiered>
-	<id>91209</id>
-	<imdbid></imdbid>
+	<uniqueid type="tmdb" default="true">91209</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
 	<studio>Milky Animation Label</studio>
 	<studio>OLE-M</studio>
 	<studio>T-Rex</studio>
