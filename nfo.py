@@ -17,8 +17,8 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
 \t<plot>{plot}</plot>
 \t<mpaa>{censorship}</mpaa>
 \t<premiered>{premiered}</premiered>
-\t<id>{tmdbid}</id>
-\t<imdbid>{imdbid}</imdbid>
+\t<uniqueid type="tmdb" default="true">{tmdbid}</uniqueid>
+\t<uniqueid type="imdb" default="false">{imdbid}</uniqueid>
 """
 
     # Studio
@@ -90,8 +90,8 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
 \t<plot>{description}</plot>
 \t<mpaa>{censorship}</mpaa>
 \t<premiered>{premiered}</premiered>
-\t<id>{tmdbid}</id>
-\t<imdbid>{imdbid}</imdbid>"""
+\t<uniqueid type="tmdb" default="true">{tmdbid}</uniqueid>
+\t<uniqueid type="imdb" default="false">{imdbid}</uniqueid>"""
 
     # Studio
     for studio in studios:
