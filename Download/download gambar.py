@@ -69,7 +69,7 @@ def collect_data(root_dir):
                                 title = os.path.basename(os.path.dirname(full_path))
 
                         if id_ is None:
-                            id_match = re.search(r"<id>(\d+)</id>", line, re.IGNORECASE)
+                            id_match = re.search(r'<uniqueid type="tmdb" default="true">(\d+)</uniqueid>', line, re.IGNORECASE)
                             if id_match:
                                 id_ = id_match.group(1).strip()
 
@@ -129,8 +129,8 @@ def download_images(id_, title, base_dir, tipe="tv"):
 
 # Eksekusi
 if __name__ == "__main__":
-    root_path = r"G:\Media\Kodi\Hentai Series"  # Ganti sesuai direktori kamu
-    base_dir = r"D:\Images\Series"  # Ganti sesuai direktori kamu
+    root_path = r"H:\Gilang\Kodingan\MyAnime"  # Ganti sesuai direktori kamu
+    base_dir = r"D:\Image\Series"  # Ganti sesuai direktori kamu
 
     data_dict = collect_data(root_path)
 

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<tvshow>
+	<title>Kozukuri Ninkatsu Bu!</title>
+	<showtitle>Kozukuri Ninkatsu Bu!</showtitle>
+	<rating>3.5</rating>
+	<plot>She asked me to tutor her... but what is this about the "impregnation club"?!</plot>
+	<mpaa>TV-MA</mpaa>
+	<premiered>2023-11-10</premiered>
+	<uniqueid type="tmdb" default="true">234257</uniqueid>
+	<uniqueid type="imdb" default="false"></uniqueid>
+	<studio>Mary Jane</studio>
+	<genre>Big Oppai</genre>
+	<genre>Blowjob</genre>
+	<genre>Creampie</genre>
+	<genre>Paizuri</genre>
+	<genre>Romance</genre>
+	<genre>Schoolgirl</genre>
+
+	<thumb aspect="poster">https://image.tmdb.org/t/p/original/nmNLvNzW0HsddjHHmRQjdEVSGco.jpg</thumb>
+	<thumb aspect="clearlogo"></thumb>
+	<fanart>
+		<thumb>https://image.tmdb.org/t/p/original/ev9YK5dQhFDVqjSlej7UsZkdOi9.jpg</thumb>
+	</fanart>
+
+</tvshow>
