@@ -19,7 +19,13 @@ With NFO Maker, you can ensure that all adult content, including hentai, gets pr
 1. **Install Python**:
    - Make sure Python is installed on your system.
 
-2. **Install dependencies**:
+2. **Clone Repository**:
+   - Clone or download my repository:
+     ```bash
+     git clone https://github.com/GilangAlRusliadi/NFO-Maker.git
+     ```
+     
+3. **Install dependencies**:
    - Install the required dependencies using:
      ```bash
      pip install -r requirements.txt
@@ -34,3 +40,4 @@ With NFO Maker, you can ensure that all adult content, including hentai, gets pr
 2. The script will prompt you to enter the movie/TV ID or paste the full URL of the content you want to scrape (e.g., the name of an anime or adult movie).
 
 3. Metadata and covers will be downloaded and saved in the NFO format compatible with Kodi.
+   
