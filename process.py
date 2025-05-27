@@ -7,7 +7,7 @@ invalid_chars = r'[\/:*?"<>|]'
 
 def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     if tv_id.startswith("http"):
-        if len(tv_id.split("/")) > 5:
+        if len(tv_id.split("/")) > 4:
             tv_id = tv_id.split("/")[4].split("-")[0].split("?")[0]
 
     # Ambil data series dan season
@@ -47,7 +47,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     description = series_data.get('overview', 'No description.')
     premiered = series_data.get('first_air_date', '')
     tmdbid = series_data.get('id', '')
-    imdbid = series_data.get('external_ids', {}).get('imdb_id', '')
+    imdbid = "" #series_data.get('imdb_id', '')
     production_companies = series_data.get('production_companies', [])
     studio_string = ', '.join([company.get('name', 'Unknown Studio') for company in production_companies]) if production_companies else 'Unknown Studio'
     studios = [studio.strip() for studio in studio_string.split(',')]
@@ -135,7 +135,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
 
 def run_movie(movie_id, title=None, koleksi=None):
     if movie_id.startswith("http"):
-        if len(movie_id.split("/")) > 5:
+        if len(movie_id.split("/")) > 4:
             movie_id = movie_id.split("/")[4].split("-")[0].split("?")[0]
 
     # Ambil data movie
