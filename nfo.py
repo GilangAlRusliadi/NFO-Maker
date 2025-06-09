@@ -58,7 +58,9 @@ def generate_movie_nfo(title, rating, plot, premiered, tmdbid, imdbid, studios, 
 \t\t<name>{set_name}</name>
 \t\t<overview>{set_overview}</overview>
 \t\t<thumb aspect="poster">https://image.tmdb.org/t/p/original{poster_path}</thumb>
-\t\t<fanart>\n\t\t\t<thumb>https://image.tmdb.org/t/p/original{backdrop_path}</thumb></fanart>
+\t\t<fanart>
+\t\t\t<thumb>https://image.tmdb.org/t/p/original{backdrop_path}</thumb>
+\t\t</fanart>
 \t</set>
 """                
     # Tambahkan actors
@@ -140,7 +142,9 @@ def generate_series_nfo(series_title, rating, description, premiered, tmdbid, im
 \t\t<name>{set_name}</name>
 \t\t<overview>{set_overview}</overview>
 \t\t<thumb aspect="poster">https://image.tmdb.org/t/p/original{poster_path}</thumb>
-\t\t<fanart>\n\t\t\t<thumb>https://image.tmdb.org/t/p/original{backdrop_path}</thumb></fanart>
+\t\t<fanart>
+\t\t\t<thumb>https://image.tmdb.org/t/p/original{backdrop_path}</thumb>
+\t\t</fanart>
 </set>
 """
         
