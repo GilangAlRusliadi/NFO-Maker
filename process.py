@@ -79,7 +79,7 @@ def run_tv(tv_id, title=None, koleksi=None, season_number=1):
     special_season = series_data.get('seasons')[0].get('name') == "Specials"
     seasons_poster = []
 
-    if total_season > 1 or special_season:
+    if total_season > 0 or special_season:
         for season_number in range(total_season + 1):
             season_data = get_season_details(tv_id, season_number)
             if season_data:
